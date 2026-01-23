@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+env/
+
+# Audio Dubbing System
+temp/
+output/
+models/
+ffmpeg-8.0.1-essentials_build/
+ffmpeg.zip
+
+# Environment variables
+.env
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo

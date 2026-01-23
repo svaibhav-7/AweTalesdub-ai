@@ -1,0 +1,37 @@
+# Core dependencies
+openai-whisper>=20230314
+torch>=2.0.0
+torchaudio>=2.0.0
+numpy>=1.24.0
+scipy>=1.10.0
+
+# Audio processing
+ffmpeg-python>=0.2.0
+pydub>=0.25.1
+soundfile>=0.12.1
+librosa>=0.10.0
+
+# Voice Activity Detection
+silero-vad>=4.0.0
+
+# Speaker diarization
+pyannote.audio>=3.1.0
+
+# Translation
+transformers>=4.30.0
+sentencepiece>=0.1.99
+
+# Text-to-Speech and Voice Cloning
+gTTS>=2.3.0
+pyttsx3>=2.90
+TTS>=0.22.0  # Coqui TTS for XTTS-v2 voice cloning
+
+# Audio analysis and processing
+librosa>=0.10.0
+soundfile>=0.12.1
+pydub>=0.25.1
+
+# Utilities
+python-dotenv>=1.0.0
+tqdm>=4.65.0
+requests>=2.31.0
