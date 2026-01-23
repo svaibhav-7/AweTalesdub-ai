@@ -28,17 +28,14 @@ choco install ffmpeg
 
 # Or download from https://ffmpeg.org/download.html
 ```
-
 **Linux:**
 ```bash
 sudo apt-get install ffmpeg
 ```
-
 **macOS:**
 ```bash
 brew install ffmpeg
 ```
-
 ### Python Dependencies
 
 Install all required packages:
@@ -46,24 +43,20 @@ Install all required packages:
 ```bash
 pip install -r requirements.txt
 ```
-
 **Note:** The first time you run Whisper, it will download model files (~1-3 GB depending on model size).
 
 ## 🚀 Quick Start
-
 ### Basic Usage
 
 ```bash
 python audio_dubbing.py input.wav hi output.wav
 ```
-
 This will:
 1. Detect the language in `input.wav`
 2. Translate it to Hindi (`hi`)
 3. Generate dubbed audio as `output.wav`
 
 ### Command-Line Options
-
 ```bash
 python audio_dubbing.py <input> <target_lang> <output> [options]
 
@@ -85,7 +78,6 @@ Options:
 ```bash
 python audio_dubbing.py interview.wav hi interview_hindi.wav
 ```
-
 **Telugu to English:**
 ```bash
 python audio_dubbing.py podcast_telugu.wav en podcast_english.wav
