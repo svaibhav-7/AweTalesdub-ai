@@ -1,5 +1,4 @@
 # Multilingual Audio Dubbing System
-
 An AI-powered audio dubbing pipeline that automatically detects source language, identifies different speakers, translates speech, and generates dubbed audio with separate voices per speaker.
 
 ## 🎯 Features
