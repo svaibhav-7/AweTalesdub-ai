@@ -22,7 +22,8 @@ if _os.path.exists(_os.path.join(FFMPEG_DIR, 'ffmpeg.exe')):
 SUPPORTED_LANGUAGES = {
     'en': 'English',
     'hi': 'Hindi',
-    'te': 'Telugu'
+    'te': 'Telugu',
+    'es': 'Spanish'
 }
 
 # Audio processing settings
@@ -63,6 +64,12 @@ VOICE_MAPPING = {
         'S2': {'gender': 'female', 'name': 'te-in', 'variant': 'default'},
         'S3': {'gender': 'male', 'name': 'te-in', 'variant': 'default'},
         'S4': {'gender': 'female', 'name': 'te-in', 'variant': 'default'},
+    },
+    'es': {
+        'S1': {'gender': 'male', 'name': 'es-es', 'variant': 'default'},
+        'S2': {'gender': 'female', 'name': 'es-es', 'variant': 'default'},
+        'S3': {'gender': 'male', 'name': 'es-mx', 'variant': 'default'},
+        'S4': {'gender': 'female', 'name': 'es-mx', 'variant': 'default'},
     }
 }
 

@@ -4,7 +4,7 @@ Complete orchestrator for multilingual audio dubbing
 """
 import os
 import json
-from typing import Optional, Dict, Any
+from typing import Optional, Dict, Any, List
 import config
 from utils import get_logger, ensure_dir, save_segments_json, load_segments_json
 from audio_processor import process_audio_pipeline, AudioProcessor
