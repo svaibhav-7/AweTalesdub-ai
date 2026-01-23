@@ -14,7 +14,7 @@ from utils import get_logger, ensure_dir
 
 logger = get_logger(__name__)
 
-# M2M100 supported languages (verified against tokenizer) r
+# M2M100 supported languages (verified against tokenizer)
 LANGUAGE_OPTIONS = {
     1: ('hi', 'Hindi'),
     2: ('ta', 'Tamil'),
