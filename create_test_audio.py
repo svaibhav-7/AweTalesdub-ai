@@ -44,7 +44,7 @@ def create_test_audio_files():
                 tts = gTTS(text=test['text'], lang=test['lang'], slow=False)
                 tts.save(test['filename'])
                 created.append(test['filename'])
-                print(f"  ✓ Saved: {test['filename']}")
+                print(f"✓ Saved: {test['filename']}")
             except Exception as e:
                 print(f"  ✗ Failed: {str(e)}")
             
