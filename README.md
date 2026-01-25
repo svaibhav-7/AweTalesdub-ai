@@ -1,5 +1,41 @@
-# Multilingual Audio Dubbing System
-An AI-powered audio dubbing pipeline that automatically detects source language, identifies different speakers, translates speech, and generates dubbed audio with separate voices per speaker.
+# Dubsmart AI 🎙️
+
+Professional, high-performance multilingual audio dubbing system.
+automatically detects source language, identifies different speakers, translates speech, and generates dubbed audio with separate voices per speaker.
+
+## 🏗️ Project Structure
+```
+dubsmart-ai/
+├── src/
+│   └── dubsmart/       # Core package
+├── config/             # Configuration
+├── scripts/            # Installation scripts
+├── tests/              # Automated tests
+├── setup.py            # Package configuration
+└── requirements.txt    # Dependencies
+```
+
+## 🚀 Quick Start
+
+### Installation
+```bash
+# Clone and install
+pip install -e .
+```
+
+### Usage
+Dubsmart provides a unified CLI for all your dubbing needs:
+
+```bash
+# Basic dubbing (English to Hindi)
+dubsmart --input samples/input.wav --tgt hi --output result.wav
+```
+
+## 🛠️ Key Features
+- **Zero-Shot Voice Cloning**: Preserve original speaker characteristics.
+- **Timing Alignment**: Automatic speed adjustment to match original speech duration.
+- **Robust Orchestration**: Modular pipeline with centralized logging.
+- **Production Ready**: Structured as a standard Python package.
 
 ## 🎯 Features
 
@@ -28,17 +64,14 @@ choco install ffmpeg
 
 # Or download from https://ffmpeg.org/download.html
 ```
-
 **Linux:**
 ```bash
 sudo apt-get install ffmpeg
 ```
-
 **macOS:**
 ```bash
 brew install ffmpeg
 ```
-
 ### Python Dependencies
 
 Install all required packages:
@@ -46,24 +79,20 @@ Install all required packages:
 ```bash
 pip install -r requirements.txt
 ```
-
 **Note:** The first time you run Whisper, it will download model files (~1-3 GB depending on model size).
 
 ## 🚀 Quick Start
-
 ### Basic Usage
 
 ```bash
 python audio_dubbing.py input.wav hi output.wav
 ```
-
 This will:
 1. Detect the language in `input.wav`
 2. Translate it to Hindi (`hi`)
 3. Generate dubbed audio as `output.wav`
 
 ### Command-Line Options
-
 ```bash
 python audio_dubbing.py <input> <target_lang> <output> [options]
 
@@ -85,7 +114,6 @@ Options:
 ```bash
 python audio_dubbing.py interview.wav hi interview_hindi.wav
 ```
-
 **Telugu to English:**
 ```bash
 python audio_dubbing.py podcast_telugu.wav en podcast_english.wav

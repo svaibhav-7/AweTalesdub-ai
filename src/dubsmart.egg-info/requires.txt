@@ -1,0 +1,9 @@
+openai-whisper
+torch
+torchaudio
+transformers
+TTS
+pydub
+librosa
+soundfile
+pyannote.audio

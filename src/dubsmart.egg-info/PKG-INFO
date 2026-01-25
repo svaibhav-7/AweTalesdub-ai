@@ -1,0 +1,13 @@
+Metadata-Version: 2.4
+Name: dubsmart
+Version: 1.0.0
+Requires-Dist: openai-whisper
+Requires-Dist: torch
+Requires-Dist: torchaudio
+Requires-Dist: transformers
+Requires-Dist: TTS
+Requires-Dist: pydub
+Requires-Dist: librosa
+Requires-Dist: soundfile
+Requires-Dist: pyannote.audio
+Dynamic: requires-dist
