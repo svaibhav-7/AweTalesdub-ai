@@ -1,41 +1,82 @@
 # Dubsmart AI 🎙️
 
 Professional, high-performance multilingual audio dubbing system.
-automatically detects source language, identifies different speakers, translates speech, and generates dubbed audio with separate voices per speaker.
 
-## 🏗️ Project Structure
+## 🏗️ Project Structure Overview
+The project has been restructured to follow standard Python package conventions for better maintainability and professional deployment:
+
 ```
 dubsmart-ai/
 ├── src/
-│   └── dubsmart/       # Core package
-├── config/             # Configuration
-├── scripts/            # Installation scripts
-├── tests/              # Automated tests
-├── setup.py            # Package configuration
-└── requirements.txt    # Dependencies
+│   └── dubsmart/       # Core package (ASR, TTS, Translation logic)
+│       ├── core/       # Orchestration pipeline
+│       ├── modules/    # AI engines (Whisper, M2M100, XTTS)
+│       └── processor/  # Audio processing and mixing
+├── config/             # Settings and configurations
+├── scripts/            # Deployment and utility scripts
+├── tests/              # Automated E2E and unit tests
+├── setup.py            # Package installation metadata
+└── requirements.txt    # Project dependencies
 ```
 
-## 🚀 Quick Start
+## 🚀 Installation Guide (Recommended)
 
-### Installation
+To ensure a clean environment, we highly recommend using a Python Virtual Environment (`.venv`).
+
+### 1. Set up Virtual Environment
+**Windows:**
+```powershell
+# Create venv if not exists
+python -m venv .venv
+# Activate venv
+.\.venv\Scripts\activate
+```
+
+**macOS/Linux:**
 ```bash
-# Clone and install
+# Create venv if not exists
+python3 -m venv .venv
+# Activate venv
+source .venv/bin/activate
+```
+
+### 2. Install Project Dependencies
+Once your `.venv` is active, install the project in **editable mode**:
+```bash
 pip install -e .
 ```
+> [!NOTE]
+> This will register the `dubsmart` command globally within your environment.
 
-### Usage
-Dubsmart provides a unified CLI for all your dubbing needs:
+## 🎙️ Usage
+
+### Command Line Interface (CLI)
+After installation, you can run the dubber from anywhere inside your environment:
 
 ```bash
-# Basic dubbing (English to Hindi)
-dubsmart --input samples/input.wav --tgt hi --output result.wav
+# Dub from English to Hindi
+dubsmart --input test_audio/English.wav --tgt hi --output result.wav
 ```
 
-## 🛠️ Key Features
-- **Zero-Shot Voice Cloning**: Preserve original speaker characteristics.
-- **Timing Alignment**: Automatic speed adjustment to match original speech duration.
-- **Robust Orchestration**: Modular pipeline with centralized logging.
-- **Production Ready**: Structured as a standard Python package.
+### 🌍 Supported Languages
+The system currently supports seamless cross-language dubbing between:
+- English (`en`)
+- Hindi (`hi`)
+- Telugu (`te`)
+- Spanish (`es`)
+
+> [!TIP]
+> **Same-Language Dubbing**: If you set the target language to be the same as the input language, the system will re-synthesize the audio using the cloned voice of the original speaker. This is great for voice cleaning or "voice matching" tests!
+
+### ➕ Adding New Languages
+The architecture is designed to be extensible. To add a new language:
+1. Update `SUPPORTED_LANGUAGES` in `src/dubsmart/utils/config.py`.
+2. The internal M2M100 translation model already supports **100+ languages**, so it will likely work immediately!
+
+### Key Optimizations
+- **Lazy Loading**: Heavy AI models (Whisper, XTTS) are only loaded into memory when synthesis starts, ensuring an near-instant CLI startup.
+- **Zero-Shot Voice Cloning**: High-quality cloning using the Coqui XTTS-v2 model.
+- **Unified Pipeline**: Robust error handling and centralized logging in `logs/dubsmart.log`.
 
 ## 🎯 Features
 
