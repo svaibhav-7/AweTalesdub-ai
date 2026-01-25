@@ -42,7 +42,13 @@ WHISPER_MODEL = 'base'  # Options: tiny, base, small, medium, large
 TRANSLATION_METHOD = 'm2m100'  # Options: 'm2m100', 'marian', 'google', 'gemini'
 
 # TTS settings
-TTS_ENGINE = 'coqui'  # Options: 'gtts', 'pyttsx3', 'coqui'
+TTS_ENGINE = 'coqui'  # Options: 'gtts', 'pyttsx3', 'coqui', 'openvoice'
+
+# OpenVoice settings
+OPENVOICE_SETTINGS = {
+    'checkpoint_dir': 'checkpoints_v2',
+    'device': 'cuda', # or 'cpu'
+}
 
 # Voice mapping per language and speaker
 # Format: language -> speaker_id -> voice_config

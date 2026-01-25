@@ -232,26 +232,6 @@ class VoiceSynthesizer:
             logger.error(f"Failed to load Coqui model: {str(e)}")
             self.engine = 'gtts'  # Fallback
     
-    def _synthesize_coqui(self, text: str, target_lang: str, 
-                          output_path: str, speaker_ref: Optional[str] = None) -> str:
-        """
-        Synthesize using Coqui TTS (XTTS-v2) via the improved CoquiVoiceSynthesizer
-        """
-        if self.tts_model is None:
-            logger.warning("Coqui TTS not available, falling back to gTTS")
-            return self._synthesize_gtts(text, {}, target_lang, output_path)
-            
-        try:
-            # The improved synthesizer handles reference audio and language internally
-            self.tts_model.language = target_lang
-            self.tts_model.synthesize_text(text, output_path, speaker_wav=speaker_ref)
-            return output_path
-            
-        except Exception as e:
-            logger.error(f"Coqui synthesis failed: {str(e)}")
-            # Fallback to gTTS
-            return self._synthesize_gtts(text, {}, target_lang, output_path)
-    
     def align_timing(self, audio_path: str, target_duration: float,
                     output_path: str) -> str:
         """
