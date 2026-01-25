@@ -32,18 +32,31 @@ class VoiceCloner:
     def clone_voice(self, text: str, ref_wav: str, lang: str, output_path: str, speed: float = 1.0) -> str:
         """Synthesize text with voice cloning."""
         self._load_model()
-        if self.model is None:
-            # Fallback logic could go here
-            return None
         
-        self.model.tts_to_file(
-            text=text,
-            file_path=output_path,
-            speaker_wav=ref_wav,
-            language=lang,
-            speed=speed
-        )
-        return output_path
+        # Primary: Coqui XTTS-v2
+        if self.model is not None:
+            try:
+                self.model.tts_to_file(
+                    text=text,
+                    file_path=output_path,
+                    speaker_wav=ref_wav,
+                    language=lang,
+                    speed=speed
+                )
+                return output_path
+            except Exception as e:
+                logger.error(f"XTTS synthesis failed: {e}. Switching to fallback.")
+
+        # Fallback: gTTS (Google Text-to-Speech)
+        try:
+            from gtts import gTTS
+            logger.info("Using gTTS fallback...")
+            tts = gTTS(text=text, lang=lang)
+            tts.save(output_path)
+            return output_path
+        except Exception as e_fallback:
+            logger.error(f"gTTS fallback failed: {e_fallback}")
+            return None
 
     def batch_clone_voices(self, segments: List[Dict[str, Any]], 
                            ref_map: Dict[str, str], lang: str, output_dir: str) -> List[Dict[str, Any]]:

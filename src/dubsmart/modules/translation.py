@@ -8,6 +8,7 @@ class Translator:
     
     def __init__(self, method: str = 'm2m100'):
         # Lazy imports for heavy libraries
+        import torch
         from transformers import M2M100ForConditionalGeneration, M2M100Tokenizer, MarianMTModel, MarianTokenizer
         self.M2M100ForConditionalGeneration = M2M100ForConditionalGeneration
         self.M2M100Tokenizer = M2M100Tokenizer
@@ -33,7 +34,17 @@ class Translator:
         model, tokenizer = self._get_m2m100()
         tokenizer.src_lang = src_lang
         encoded = tokenizer(text, return_tensors="pt").to(self.device)
-        generated = model.generate(**encoded, forced_bos_token_id=tokenizer.get_lang_id(tgt_lang))
+        
+        # Improved generation parameters to prevent repetition and improve quality
+        generated = model.generate(
+            **encoded, 
+            forced_bos_token_id=tokenizer.get_lang_id(tgt_lang),
+            max_length=256,
+            num_beams=5,
+            no_repeat_ngram_size=3,
+            early_stopping=True,
+            do_sample=False  # Keep it deterministic for translation
+        )
         return tokenizer.batch_decode(generated, skip_special_tokens=True)[0]
 
     def translate_segments(self, segments: List[Dict[str, Any]], src_lang: str, tgt_lang: str) -> List[Dict[str, Any]]:

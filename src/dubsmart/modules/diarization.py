@@ -7,6 +7,7 @@ class SpeakerDiarizer:
     """Handle speaker identification and segment extraction."""
     
     def __init__(self, use_pyannote: bool = True):
+        import torch
         self.use_pyannote = use_pyannote
         self.pipeline = None
         # In a real scenario, load the pyannote pipeline here if token is available
