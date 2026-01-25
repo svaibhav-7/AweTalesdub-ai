@@ -146,6 +146,11 @@ input[type="text"]:focus {
   border-color: #3b82f6;
 }
 
+option {
+  background-color: #1a1625;
+  color: white;
+}
+
 .btn-primary {
   background: var(--primary-gradient);
   color: white;

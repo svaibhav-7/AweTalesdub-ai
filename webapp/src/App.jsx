@@ -80,8 +80,8 @@ function App() {
       </header>
 
       <section className="hero">
-        <h1>High-Performance Dubbing</h1>
-        <p>Multilingual audio dubbing and voice cloning powered by state-of-the-art AI. Preserve tone, emotion, and timing across 100+ languages.</p>
+        <h1>Your Dubbing Partner</h1>
+        <p>AI-powered dubbing for your audio content</p>
       </section>
 
       <main className="main-card">
