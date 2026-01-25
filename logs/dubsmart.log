@@ -401,3 +401,32 @@
 2026-01-25 20:01:03 - dubsmart.core.pipeline - INFO - Synthesized 2/2 segments
 2026-01-25 20:01:19 - dubsmart.processor.mixer - INFO - Mixed audio saved to: result.wav
 2026-01-25 20:01:19 - __main__ - INFO - Dubbing successful! Result: result.wav
+2026-01-25 20:15:53 - __main__ - ERROR - Pipeline failed: Numba needs NumPy 2.3 or less. Got NumPy 2.4.
+2026-01-25 21:12:57 - dubsmart.modules.transcription - INFO - Initializing Whisper model: small on cpu
+2026-01-25 21:13:23 - dubsmart.modules.translation - INFO - Translator initialized with method: m2m100
+2026-01-25 21:13:23 - dubsmart.core.pipeline - INFO - Starting pipeline for test_audio/WAZ_hid.wav
+2026-01-25 21:13:23 - dubsmart.modules.transcription - INFO - Transcribing audio: test_audio/WAZ_hid.wav
+2026-01-25 21:17:40 - dubsmart.modules.transcription - INFO - Detected language: hi
+2026-01-25 21:17:40 - dubsmart.core.pipeline - INFO - Auto-detected source language as: hi
+2026-01-25 21:17:40 - dubsmart.modules.diarization - INFO - Diarizing audio: test_audio/WAZ_hid.wav
+2026-01-25 21:17:40 - dubsmart.modules.translation - INFO - Translating 3 segments from hi to en
+2026-01-25 21:47:52 - dubsmart.modules.transcription - INFO - Initializing Whisper model: small on cpu
+2026-01-25 21:48:12 - dubsmart.modules.translation - INFO - Translator initialized with method: m2m100
+2026-01-25 21:48:12 - dubsmart.core.pipeline - INFO - Starting pipeline for test_audio/WAZ_hid.wav
+2026-01-25 21:48:12 - dubsmart.modules.transcription - INFO - Transcribing audio: test_audio/WAZ_hid.wav
+2026-01-25 21:54:03 - dubsmart.modules.transcription - INFO - Detected language: hi
+2026-01-25 21:54:03 - dubsmart.core.pipeline - INFO - Auto-detected source language as: hi
+2026-01-25 21:54:03 - dubsmart.modules.diarization - INFO - Diarizing audio: test_audio/WAZ_hid.wav
+2026-01-25 21:54:03 - dubsmart.modules.translation - INFO - Translating 8 segments from hi to en
+2026-01-25 22:10:07 - dubsmart.modules.transcription - INFO - Initializing Whisper model: small on cpu
+2026-01-25 22:14:30 - dubsmart.modules.translation - INFO - Translator initialized with method: m2m100
+2026-01-25 22:14:38 - dubsmart.core.pipeline - INFO - Starting pipeline for test_audio/WAZ_hid.wav
+2026-01-25 22:14:38 - dubsmart.modules.transcription - INFO - Transcribing audio: test_audio/WAZ_hid.wav
+2026-01-25 22:52:06 - dubsmart.modules.transcription - INFO - Initializing Whisper model: small on cpu
+2026-01-25 22:52:26 - dubsmart.modules.translation - INFO - Translator initialized with method: m2m100
+2026-01-25 22:52:26 - dubsmart.core.pipeline - INFO - Starting pipeline for temp/d6ae03ef-e91b-404d-8953-17bebeb794bf\English.wav
+2026-01-25 22:52:26 - dubsmart.modules.transcription - INFO - Transcribing audio: temp/d6ae03ef-e91b-404d-8953-17bebeb794bf\English.wav
+2026-01-25 22:53:01 - dubsmart.modules.transcription - INFO - Detected language: en
+2026-01-25 22:53:01 - dubsmart.core.pipeline - INFO - Auto-detected source language as: en
+2026-01-25 22:53:01 - dubsmart.modules.diarization - INFO - Diarizing audio: temp/d6ae03ef-e91b-404d-8953-17bebeb794bf\English.wav
+2026-01-25 22:53:01 - dubsmart.modules.translation - INFO - Translating 13 segments from en to hi

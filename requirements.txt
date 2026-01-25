@@ -26,3 +26,8 @@ python-dotenv>=1.0.0
 tqdm>=4.65.0
 requests>=2.31.0
 filelock>=3.10.0  # Explicitly adding filelock to help resolution
+
+# Web API
+fastapi>=0.100.0
+uvicorn>=0.22.0
+python-multipart>=0.0.6
