@@ -2,20 +2,21 @@
 
 Professional, high-performance multilingual audio dubbing system.
 
-## 🏗️ Project Structure Overview
-The project has been restructured to follow standard Python package conventions for better maintainability and professional deployment:
+## 🏗️ Project Structure
+The project follows professional modular standards:
 
 ```
 dubsmart-ai/
 ├── src/
-│   └── dubsmart/       # Core package (ASR, TTS, Translation logic)
+│   └── dubsmart/       # Core package
 │       ├── core/       # Orchestration pipeline
 │       ├── modules/    # AI engines (Whisper, M2M100, XTTS)
-│       └── processor/  # Audio processing and mixing
-├── config/             # Settings and configurations
-├── scripts/            # Deployment and utility scripts
-├── tests/              # Automated E2E and unit tests
-├── setup.py            # Package installation metadata
+│       ├── processor/  # Audio processing and mixing
+│       ├── api/        # FastAPI modular backend
+│       └── utils/      # Shared utilities and config
+├── webapp/             # Premium React frontend
+├── scripts/            # Utility and standalone scripts
+├── setup.py            # Package installation
 └── requirements.txt    # Project dependencies
 ```
 
@@ -123,41 +124,27 @@ pip install -r requirements.txt
 **Note:** The first time you run Whisper, it will download model files (~1-3 GB depending on model size).
 
 ## 🚀 Quick Start
-### Basic Usage
+### Basic Usage (Package installed)
 
 ```bash
-python audio_dubbing.py input.wav hi output.wav
+dubsmart --input test_audio/English.wav --tgt es
 ```
-This will:
-1. Detect the language in `input.wav`
-2. Translate it to Hindi (`hi`)
-3. Generate dubbed audio as `output.wav`
 
 ### Command-Line Options
 ```bash
-python audio_dubbing.py <input> <target_lang> <output> [options]
+python -m dubsmart.main --help
 
 Arguments:
   input             Input audio file (WAV, MP3, etc.)
-  target_lang       Target language: en (English), hi (Hindi), te (Telugu)
+  tgt               Target language: en, hi, es, fr, etc.
   output            Output audio file
-
-Options:
-  --use-pyannote           Use PyAnnote for better speaker diarization
-                          (requires HuggingFace token)
-  --preserve-background    Preserve background sounds from original
-  --no-intermediates       Don't save intermediate processing files
 ```
 
 ### Examples
 
-**English to Hindi:**
+**English to Spanish:**
 ```bash
-python audio_dubbing.py interview.wav hi interview_hindi.wav
-```
-**Telugu to English:**
-```bash
-python audio_dubbing.py podcast_telugu.wav en podcast_english.wav
+dubsmart --input test_audio/English.wav --tgt es --output result_es.wav
 ```
 
 **With background preservation:**

@@ -31,14 +31,18 @@ class Translator:
         if not text.strip(): return ""
         if src_lang == tgt_lang: return text
         
+        from ..utils.helpers import normalize_language_code
+        m2m_src = normalize_language_code(src_lang, target_model='m2m100')
+        m2m_tgt = normalize_language_code(tgt_lang, target_model='m2m100')
+        
         model, tokenizer = self._get_m2m100()
-        tokenizer.src_lang = src_lang
+        tokenizer.src_lang = m2m_src
         encoded = tokenizer(text, return_tensors="pt").to(self.device)
         
         # Improved generation parameters to prevent repetition and improve quality
         generated = model.generate(
             **encoded, 
-            forced_bos_token_id=tokenizer.get_lang_id(tgt_lang),
+            forced_bos_token_id=tokenizer.get_lang_id(m2m_tgt),
             max_length=256,
             num_beams=5,
             no_repeat_ngram_size=3,

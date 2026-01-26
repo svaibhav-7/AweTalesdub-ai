@@ -68,7 +68,10 @@ class DubbingPipeline:
         print("="*50 + "\n")
         
         # 4. Synthesize
-        synthesized = self.cloner.batch_clone_voices(translated, ref_map, self.tgt_lang, "temp/syn")
+        from ..utils.helpers import normalize_language_code
+        xtts_lang = normalize_language_code(self.tgt_lang, target_model='xtts')
+        
+        synthesized = self.cloner.batch_clone_voices(translated, ref_map, xtts_lang, "temp/syn")
         
         # Validation: Check if any audio was actually produced
         synthesized_count = sum(1 for seg in synthesized if seg.get('audio_path'))

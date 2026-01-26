@@ -7,7 +7,20 @@ SUPPORTED_LANGUAGES = {
     'en': 'English',
     'hi': 'Hindi',
     'te': 'Telugu',
-    'es': 'Spanish'
+    'es': 'Spanish',
+    'fr': 'French',
+    'de': 'German',
+    'it': 'Italian',
+    'pt': 'Portuguese',
+    'pl': 'Polish',
+    'tr': 'Turkish',
+    'ru': 'Russian',
+    'nl': 'Dutch',
+    'cs': 'Czech',
+    'ar': 'Arabic',
+    'zh-cn': 'Chinese',
+    'ja': 'Japanese',
+    'ko': 'Korean'
 }
 
 # Audio processing settings

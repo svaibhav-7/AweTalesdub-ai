@@ -41,3 +41,28 @@ def merge_overlapping_segments(segments: List[Dict[str, Any]], max_gap: float = 
         else:
             merged.append(seg.copy())
     return merged
+
+def normalize_language_code(lang_code: str, target_model: str = 'xtts') -> str:
+    """
+    Normalize language codes between different AI models.
+    Whisper, M2M100, and XTTS-v2 sometimes use slightly different codes.
+    """
+    if not lang_code:
+        return lang_code
+        
+    lang_code = lang_code.lower()
+    
+    # Mapping table
+    # (Whisper/Standard -> Target Model)
+    mapping = {
+        'xtts': {
+            'zh': 'zh-cn',
+            'zh-cn': 'zh-cn',
+            'pt': 'pt-br', # Default to pt-br for Portuguese
+        },
+        'm2m100': {
+            'zh-cn': 'zh',
+        }
+    }
+    
+    return mapping.get(target_model, {}).get(lang_code, lang_code)
