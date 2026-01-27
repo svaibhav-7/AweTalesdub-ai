@@ -20,7 +20,7 @@ def main():
 
     # Configuration
     AUDIO_FILE = "test_audio/English.wav"
-    TARGET_LANG = "es"  # Spanish for testing
+    TARGET_LANG = input("Enter your target language code (e.g., 'es' for Spanish): ").strip().lower() or "es"
     OUTPUT_DIR = f"output/{TARGET_LANG}"
     FINAL_OUTPUT = f"output/dubbed_{TARGET_LANG}_complete.wav"
 

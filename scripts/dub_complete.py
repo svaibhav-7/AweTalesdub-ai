@@ -4,9 +4,9 @@ DubSmart AI - Complete End-to-End Multilingual Dubbing Pipeline
 English.wav → Transcribe → Translate → Voice Clone → Mix Audio → Final Dubbed Output
 
 Usage:
-    python dub_complete.py --lang es  # Dub to Spanish
-    python dub_complete.py --lang fr  # Dub to French
-    python dub_complete.py --lang hi  # Dub to Hindi
+    python dub_complete.py --input test_audio/English.wav --lang es  # Dub to Spanish
+    python dub_complete.py --input my_audio.wav --lang fr  # Dub to French
+    python dub_complete.py --input audio.mp3 --lang hi  # Dub to Hindi
 """
 
 import argparse
@@ -15,13 +15,13 @@ import sys
 from pathlib import Path
 
 # Add src to path
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
 
 from dubsmart.core.pipeline import DubbingPipeline
 
 def main():
     parser = argparse.ArgumentParser(description="Complete End-to-End Audio Dubbing")
-    parser.add_argument("--input", default="test_audio/English.wav", help="Input audio file")
+    parser.add_argument("--input", required=True, help="Input audio file path (e.g., test_audio/English.wav)")
     parser.add_argument("--lang", required=True, help="Target language code (es, fr, hi, ta, etc.)")
     parser.add_argument("--output", help="Output dubbed audio file")
     parser.add_argument("--cpu", action="store_true", help="Force CPU mode (disable GPU)")

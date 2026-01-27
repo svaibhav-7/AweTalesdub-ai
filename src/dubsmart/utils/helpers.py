@@ -65,4 +65,5 @@ def normalize_language_code(lang_code: str, target_model: str = 'xtts') -> str:
         }
     }
     
-    return mapping.get(target_model, {}).get(lang_code, lang_code)
+    target_lang = mapping.get(target_model, {}).get(lang_code, lang_code)
+    return target_lang

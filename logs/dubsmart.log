@@ -491,3 +491,50 @@ Check the documentation of torch.load to learn more about types accepted by defa
 Check the documentation of torch.load to learn more about types accepted by default with weights_only https://pytorch.org/docs/stable/generated/torch.load.html.
 2026-01-26 13:46:13 - dubsmart.modules.cloning - INFO - Using gTTS fallback...
 2026-01-26 13:46:17 - dubsmart.modules.cloning - INFO - Loading Coqui XTTS-v2 model (Lazy Load)...
+2026-01-26 16:41:07 - dubsmart.modules.transcription - INFO - Initializing Whisper model: small on cpu
+2026-01-26 16:41:22 - dubsmart.modules.translation - INFO - Translator initialized with method: m2m100
+2026-01-26 16:41:22 - dubsmart.core.pipeline - INFO - Starting pipeline for test_audio/English.wav
+2026-01-26 16:41:22 - dubsmart.modules.transcription - INFO - Transcribing audio: test_audio/English.wav
+2026-01-26 16:41:45 - dubsmart.modules.transcription - INFO - Detected language: en
+2026-01-26 16:41:45 - dubsmart.modules.diarization - INFO - Diarizing audio: test_audio/English.wav
+2026-01-26 16:41:45 - dubsmart.modules.translation - INFO - Translating 13 segments from en to fr
+2026-01-26 17:02:24 - dubsmart.modules.translation - INFO - Translated 10/13 segments
+2026-01-26 17:05:53 - dubsmart.modules.cloning - INFO - Loading Coqui XTTS-v2 model (Lazy Load)...
+2026-01-26 17:20:30 - dubsmart.modules.cloning - ERROR - Failed to load Coqui model: Weights only load failed. This file can still be loaded, to do so you have two options, [1mdo those steps only if you trust the source of the checkpoint[0m. 
+	(1) In PyTorch 2.6, we changed the default value of the `weights_only` argument in `torch.load` from `False` to `True`. Re-running `torch.load` with `weights_only` set to `False` will likely succeed, but it can result in arbitrary code execution. Do it only if you got the file from a trusted source.
+	(2) Alternatively, to load with `weights_only=True` please check the recommended steps in the following error message.
+	WeightsUnpickler error: Unsupported global: GLOBAL TTS.tts.configs.xtts_config.XttsConfig was not an allowed global by default. Please use `torch.serialization.add_safe_globals([TTS.tts.configs.xtts_config.XttsConfig])` or the `torch.serialization.safe_globals([TTS.tts.configs.xtts_config.XttsConfig])` context manager to allowlist this global if you trust this class/function.
+
+Check the documentation of torch.load to learn more about types accepted by default with weights_only https://pytorch.org/docs/stable/generated/torch.load.html.
+2026-01-26 17:20:36 - dubsmart.modules.cloning - INFO - Using gTTS fallback...
+2026-01-26 17:20:38 - dubsmart.modules.cloning - INFO - Loading Coqui XTTS-v2 model (Lazy Load)...
+2026-01-26 17:21:29 - dubsmart.modules.cloning - ERROR - Failed to load Coqui model: Weights only load failed. This file can still be loaded, to do so you have two options, [1mdo those steps only if you trust the source of the checkpoint[0m. 
+	(1) In PyTorch 2.6, we changed the default value of the `weights_only` argument in `torch.load` from `False` to `True`. Re-running `torch.load` with `weights_only` set to `False` will likely succeed, but it can result in arbitrary code execution. Do it only if you got the file from a trusted source.
+	(2) Alternatively, to load with `weights_only=True` please check the recommended steps in the following error message.
+	WeightsUnpickler error: Unsupported global: GLOBAL TTS.tts.configs.xtts_config.XttsConfig was not an allowed global by default. Please use `torch.serialization.add_safe_globals([TTS.tts.configs.xtts_config.XttsConfig])` or the `torch.serialization.safe_globals([TTS.tts.configs.xtts_config.XttsConfig])` context manager to allowlist this global if you trust this class/function.
+
+Check the documentation of torch.load to learn more about types accepted by default with weights_only https://pytorch.org/docs/stable/generated/torch.load.html.
+2026-01-26 17:21:30 - dubsmart.modules.cloning - INFO - Using gTTS fallback...
+2026-01-26 17:21:39 - dubsmart.modules.cloning - INFO - Loading Coqui XTTS-v2 model (Lazy Load)...
+2026-01-26 17:22:11 - dubsmart.modules.cloning - ERROR - Failed to load Coqui model: Weights only load failed. This file can still be loaded, to do so you have two options, [1mdo those steps only if you trust the source of the checkpoint[0m. 
+	(1) In PyTorch 2.6, we changed the default value of the `weights_only` argument in `torch.load` from `False` to `True`. Re-running `torch.load` with `weights_only` set to `False` will likely succeed, but it can result in arbitrary code execution. Do it only if you got the file from a trusted source.
+	(2) Alternatively, to load with `weights_only=True` please check the recommended steps in the following error message.
+	WeightsUnpickler error: Unsupported global: GLOBAL TTS.tts.configs.xtts_config.XttsConfig was not an allowed global by default. Please use `torch.serialization.add_safe_globals([TTS.tts.configs.xtts_config.XttsConfig])` or the `torch.serialization.safe_globals([TTS.tts.configs.xtts_config.XttsConfig])` context manager to allowlist this global if you trust this class/function.
+
+Check the documentation of torch.load to learn more about types accepted by default with weights_only https://pytorch.org/docs/stable/generated/torch.load.html.
+2026-01-26 17:22:11 - dubsmart.modules.cloning - INFO - Using gTTS fallback...
+2026-01-26 17:22:15 - dubsmart.modules.cloning - INFO - Loading Coqui XTTS-v2 model (Lazy Load)...
+2026-01-26 22:38:35 - dubsmart.modules.transcription - INFO - Initializing Whisper model: small on cpu
+2026-01-26 22:38:56 - dubsmart.modules.translation - INFO - Translator initialized with method: m2m100
+2026-01-26 22:38:56 - dubsmart.core.pipeline - INFO - Starting pipeline for test_audio/English.wav
+2026-01-26 22:38:56 - dubsmart.modules.transcription - INFO - Transcribing audio: test_audio/English.wav
+2026-01-26 22:39:29 - dubsmart.modules.transcription - INFO - Detected language: en
+2026-01-26 22:39:29 - dubsmart.modules.diarization - INFO - Diarizing audio: test_audio/English.wav
+2026-01-26 22:39:29 - dubsmart.modules.translation - INFO - Translating 13 segments from en to fr
+2026-01-27 13:07:54 - dubsmart.modules.transcription - INFO - Initializing Whisper model: small on cpu
+2026-01-27 13:08:06 - dubsmart.modules.translation - INFO - Translator initialized with method: m2m100
+2026-01-27 13:08:06 - dubsmart.core.pipeline - INFO - Starting pipeline for temp/d97afa07-6f0f-43a4-8a5a-aa46e4b0fc1c\English.wav
+2026-01-27 13:08:06 - dubsmart.modules.transcription - INFO - Transcribing audio: temp/d97afa07-6f0f-43a4-8a5a-aa46e4b0fc1c\English.wav
+2026-01-27 13:08:57 - dubsmart.modules.transcription - INFO - Detected language: en
+2026-01-27 13:08:57 - dubsmart.modules.diarization - INFO - Diarizing audio: temp/d97afa07-6f0f-43a4-8a5a-aa46e4b0fc1c\English.wav
+2026-01-27 13:08:57 - dubsmart.modules.translation - INFO - Translating 13 segments from en to hi

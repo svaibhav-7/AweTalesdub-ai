@@ -18,6 +18,10 @@ class VoiceCloner:
         if self.model is not None:
             return
         try:
+            import os
+            # Work around PyTorch 2.6 weights_only issue
+            os.environ['TORCH_FORCE_WEIGHTS_ONLY_LOAD'] = '0'
+
             from TTS.api import TTS
         except ImportError:
             logger.warning("TTS library not installed. Using fallback.")
@@ -28,6 +32,7 @@ class VoiceCloner:
             self.model = TTS("tts_models/multilingual/multi-dataset/xtts_v2", gpu=self.device=="cuda")
         except Exception as e:
             logger.error(f"Failed to load Coqui model: {e}")
+            logger.info("Model loading failed, will use fallback synthesis")
 
     def clone_voice(self, text: str, ref_wav: str, lang: str, output_path: str, speed: float = 1.0) -> str:
         """Synthesize text with voice cloning."""
