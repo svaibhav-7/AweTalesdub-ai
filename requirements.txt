@@ -31,3 +31,5 @@ filelock>=3.10.0  # Explicitly adding filelock to help resolution
 fastapi>=0.100.0
 uvicorn>=0.22.0
 python-multipart>=0.0.6
+edge-tts>=6.1.9
+aiofiles>=23.2.1

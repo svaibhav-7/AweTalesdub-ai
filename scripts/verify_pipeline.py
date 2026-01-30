@@ -41,8 +41,8 @@ def verify_pipeline():
         print(f"   ❌ Translation failed: {e}")
         return
 
-    # 3. Verification: Voice Cloning (Real - Fallback Expected)
-    print("\n[3/4] Verifying Voice Cloning (Should fallback to gTTS)...")
+    # 3. Verification: Voice Cloning (Expect EdgeTTS)
+    print("\n[3/4] Verifying Voice Cloning (Should use EdgeTTS)...")
     try:
         cloner = VoiceCloner(use_gpu=False)
         # Create a dummy ref map
@@ -57,6 +57,17 @@ def verify_pipeline():
 
         success_count = sum(1 for seg in synthesized_segments if seg.get('audio_path'))
         print(f"   ✅ Voice Cloning successful. Synthesized {success_count}/{len(translated_segments)} segments.")
+
+        # Check file sizes to differentiate between gTTS (tiny) and EdgeTTS (larger)
+        if success_count > 0:
+            sample_file = synthesized_segments[0]['audio_path']
+            size = os.path.getsize(sample_file)
+            print(f"   Sample file size: {size} bytes")
+            if size > 10000: # gTTS files are usually very small for short text
+                print("   Note: Large file size suggests EdgeTTS/Coqui likely worked.")
+            else:
+                print("   Note: Small file size suggests gTTS fallback.")
+
     except Exception as e:
         print(f"   ❌ Voice Cloning failed: {e}")
         return

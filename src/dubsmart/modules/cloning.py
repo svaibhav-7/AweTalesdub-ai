@@ -1,4 +1,5 @@
 import os
+import asyncio
 from typing import Optional, List, Dict, Any
 from pydub import AudioSegment
 from ..utils import get_logger, get_temp_filename, ensure_dir
@@ -6,13 +7,24 @@ from ..utils import get_logger, get_temp_filename, ensure_dir
 logger = get_logger(__name__)
 
 class VoiceCloner:
-    """Advanced voice cloning using Coqui XTTS-v2."""
+    """Advanced voice cloning using Coqui XTTS-v2 with EdgeTTS and gTTS fallbacks."""
     
     def __init__(self, use_gpu: bool = True):
         import torch
         self.use_gpu = use_gpu
         self.device = "cuda" if (use_gpu and torch.cuda.is_available()) else "cpu"
         self.model = None
+        self.edge_voices = {
+            'en': 'en-US-ChristopherNeural',
+            'es': 'es-ES-AlvaroNeural',
+            'fr': 'fr-FR-HenriNeural',
+            'de': 'de-DE-KillianNeural',
+            'it': 'it-IT-DiegoNeural',
+            'pt': 'pt-BR-AntonioNeural',
+            'hi': 'hi-IN-MadhurNeural',
+            'te': 'te-IN-MohanNeural',
+            # Add more defaults as needed
+        }
         
     def _load_model(self):
         if self.model is not None:
@@ -24,7 +36,7 @@ class VoiceCloner:
 
             from TTS.api import TTS
         except ImportError:
-            logger.warning("TTS library not installed. Using fallback.")
+            logger.warning("TTS library not installed. Using EdgeTTS/gTTS fallback.")
             return
 
         try:
@@ -33,6 +45,11 @@ class VoiceCloner:
         except Exception as e:
             logger.error(f"Failed to load Coqui model: {e}")
             logger.info("Model loading failed, will use fallback synthesis")
+
+    async def _generate_edge_tts(self, text: str, voice: str, output_path: str):
+        import edge_tts
+        communicate = edge_tts.Communicate(text, voice)
+        await communicate.save(output_path)
 
     def clone_voice(self, text: str, ref_wav: str, lang: str, output_path: str, speed: float = 1.0) -> str:
         """Synthesize text with voice cloning."""
@@ -50,9 +67,28 @@ class VoiceCloner:
                 )
                 return output_path
             except Exception as e:
-                logger.error(f"XTTS synthesis failed: {e}. Switching to fallback.")
+                logger.error(f"XTTS synthesis failed: {e}. Switching to EdgeTTS fallback.")
 
-        # Fallback: gTTS (Google Text-to-Speech)
+        # Secondary: EdgeTTS (Microsoft Edge Online TTS) - High Quality, Free
+        try:
+            logger.info(f"Using EdgeTTS fallback for {lang}...")
+            # Normalize lang code (e.g., 'es' -> 'es')
+            lang_key = lang.lower().split('-')[0]
+            voice = self.edge_voices.get(lang_key, 'en-US-ChristopherNeural')
+
+            # Run async function in synchronous context
+            asyncio.run(self._generate_edge_tts(text, voice, output_path))
+
+            # Verify file exists
+            if os.path.exists(output_path) and os.path.getsize(output_path) > 0:
+                return output_path
+            else:
+                raise RuntimeError("EdgeTTS produced empty file")
+
+        except Exception as e_edge:
+            logger.error(f"EdgeTTS fallback failed: {e_edge}. Switching to gTTS.")
+
+        # Tertiary: gTTS (Google Text-to-Speech) - Basic Quality
         try:
             from gtts import gTTS
             logger.info("Using gTTS fallback...")
