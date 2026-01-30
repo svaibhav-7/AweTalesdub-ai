@@ -22,3 +22,5 @@ ffmpeg.zip
 .idea/
 *.swp
 *.swo
+ffmpeg
+ffprobe
