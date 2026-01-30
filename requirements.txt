@@ -1,9 +1,9 @@
 torch>=2.0.0
 torchaudio>=2.0.0
 openai-whisper>=20230314
-transformers==4.30.2  # Definitive stable version for Coqui TTS 0.22.0
+transformers>=4.30.2
 sentencepiece>=0.1.99
-numpy>=1.24.0, <2.0.0
+numpy>=1.24.0
 scipy>=1.10.0
 
 # Audio processing & VAD
@@ -15,7 +15,7 @@ silero-vad>=4.0.0
 
 # Speaker diarization & TTS
 pyannote.audio>=3.1.0
-TTS==0.22.0  # Pinning Coqui TTS to avoid resolution loops
+# TTS==0.22.0  # Not available for Python 3.12
 
 # Legacy TTS support (Optional)
 gTTS>=2.3.0
@@ -31,3 +31,5 @@ filelock>=3.10.0  # Explicitly adding filelock to help resolution
 fastapi>=0.100.0
 uvicorn>=0.22.0
 python-multipart>=0.0.6
+edge-tts>=6.1.9
+aiofiles>=23.2.1

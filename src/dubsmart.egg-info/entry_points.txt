@@ -1,2 +1,0 @@
-[console_scripts]
-dubsmart = dubsmart.main:main
