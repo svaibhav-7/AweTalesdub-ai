@@ -1,5 +1,7 @@
 import os
 import asyncio
+import librosa
+import numpy as np
 from typing import Optional, List, Dict, Any
 from pydub import AudioSegment
 from ..utils import get_logger, get_temp_filename, ensure_dir
@@ -7,25 +9,26 @@ from ..utils import get_logger, get_temp_filename, ensure_dir
 logger = get_logger(__name__)
 
 class VoiceCloner:
-    """Advanced voice cloning using Coqui XTTS-v2 with EdgeTTS and gTTS fallbacks."""
+    """Advanced voice cloning using Coqui XTTS-v2 with Smart EdgeTTS fallback."""
     
     def __init__(self, use_gpu: bool = True):
         import torch
         self.use_gpu = use_gpu
         self.device = "cuda" if (use_gpu and torch.cuda.is_available()) else "cpu"
         self.model = None
-        self.edge_voices = {
-            'en': 'en-US-ChristopherNeural',
-            'es': 'es-ES-AlvaroNeural',
-            'fr': 'fr-FR-HenriNeural',
-            'de': 'de-DE-KillianNeural',
-            'it': 'it-IT-DiegoNeural',
-            'pt': 'pt-BR-AntonioNeural',
-            'hi': 'hi-IN-MadhurNeural',
-            'te': 'te-IN-MohanNeural',
-            # Add more defaults as needed
-        }
         
+        # EdgeTTS Voice Database (Gender-mapped)
+        self.edge_voice_map = {
+            'en': {'male': 'en-US-ChristopherNeural', 'female': 'en-US-JennyNeural'},
+            'es': {'male': 'es-ES-AlvaroNeural', 'female': 'es-ES-ElviraNeural'},
+            'fr': {'male': 'fr-FR-HenriNeural', 'female': 'fr-FR-DeniseNeural'},
+            'de': {'male': 'de-DE-KillianNeural', 'female': 'de-DE-KatjaNeural'},
+            'it': {'male': 'it-IT-DiegoNeural', 'female': 'it-IT-ElsaNeural'},
+            'pt': {'male': 'pt-BR-AntonioNeural', 'female': 'pt-BR-FranciscaNeural'},
+            'hi': {'male': 'hi-IN-MadhurNeural', 'female': 'hi-IN-SwaraNeural'},
+            'te': {'male': 'te-IN-MohanNeural', 'female': 'te-IN-ShrutiNeural'},
+        }
+
     def _load_model(self):
         if self.model is not None:
             return
@@ -36,7 +39,7 @@ class VoiceCloner:
 
             from TTS.api import TTS
         except ImportError:
-            logger.warning("TTS library not installed. Using EdgeTTS/gTTS fallback.")
+            logger.warning("TTS library not installed. Using Smart EdgeTTS fallback.")
             return
 
         try:
@@ -51,8 +54,33 @@ class VoiceCloner:
         communicate = edge_tts.Communicate(text, voice)
         await communicate.save(output_path)
 
+    def _detect_gender(self, audio_path: str) -> str:
+        """Crude pitch-based gender detection (Fallback estimation)."""
+        try:
+            y, sr = librosa.load(audio_path, sr=None, duration=10.0)
+            pitches, magnitudes = librosa.piptrack(y=y, sr=sr)
+
+            # Extract pitch from high-magnitude bins
+            threshold = np.max(magnitudes) * 0.1
+            pitches = pitches[magnitudes > threshold]
+
+            if len(pitches) == 0:
+                return 'male' # Default
+
+            # Calculate average pitch (f0)
+            avg_pitch = np.mean(pitches)
+
+            # Heuristic: < 165Hz = Male, > 165Hz = Female
+            # This is a simplification but works for general cases.
+            logger.info(f"Detected average pitch: {avg_pitch:.2f} Hz")
+            return 'female' if avg_pitch > 165 else 'male'
+
+        except Exception as e:
+            logger.warning(f"Gender detection failed: {e}. Defaulting to male.")
+            return 'male'
+
     def clone_voice(self, text: str, ref_wav: str, lang: str, output_path: str, speed: float = 1.0) -> str:
-        """Synthesize text with voice cloning."""
+        """Synthesize text with voice cloning or smart matching."""
         self._load_model()
         
         # Primary: Coqui XTTS-v2
@@ -67,14 +95,22 @@ class VoiceCloner:
                 )
                 return output_path
             except Exception as e:
-                logger.error(f"XTTS synthesis failed: {e}. Switching to EdgeTTS fallback.")
+                logger.error(f"XTTS synthesis failed: {e}. Switching to Smart EdgeTTS fallback.")
 
-        # Secondary: EdgeTTS (Microsoft Edge Online TTS) - High Quality, Free
+        # Secondary: Smart EdgeTTS (Voice Matching)
         try:
-            logger.info(f"Using EdgeTTS fallback for {lang}...")
-            # Normalize lang code (e.g., 'es' -> 'es')
+            logger.info(f"Using Smart EdgeTTS fallback for {lang}...")
+
+            # Detect gender from reference audio
+            gender = self._detect_gender(ref_wav)
+            logger.info(f"Matched input voice to gender: {gender.upper()}")
+
+            # Select voice
             lang_key = lang.lower().split('-')[0]
-            voice = self.edge_voices.get(lang_key, 'en-US-ChristopherNeural')
+            voice_options = self.edge_voice_map.get(lang_key, self.edge_voice_map['en'])
+            voice = voice_options.get(gender, voice_options['male'])
+
+            logger.info(f"Selected EdgeTTS Voice: {voice}")
 
             # Run async function in synchronous context
             asyncio.run(self._generate_edge_tts(text, voice, output_path))
@@ -103,6 +139,10 @@ class VoiceCloner:
                            ref_map: Dict[str, str], lang: str, output_dir: str) -> List[Dict[str, Any]]:
         """Process multiple segments."""
         ensure_dir(output_dir)
+
+        # Cache gender detection per speaker to avoid re-processing
+        speaker_gender_cache = {}
+
         for i, seg in enumerate(segments):
             speaker_id = seg.get('speaker', 'default')
             text = seg.get('translated_text', seg.get('text', ''))

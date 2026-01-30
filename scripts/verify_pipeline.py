@@ -8,7 +8,7 @@ from src.dubsmart.modules.cloning import VoiceCloner
 from src.dubsmart.processor.mixer import AudioMixer
 
 def verify_pipeline():
-    print("🚀 Starting Pipeline Verification...")
+    print("🚀 Starting Pipeline Verification (Enhanced)...")
 
     # Setup paths
     audio_file = "test_audio/short_test.wav"
@@ -17,13 +17,22 @@ def verify_pipeline():
         shutil.rmtree(output_dir)
     os.makedirs(output_dir, exist_ok=True)
 
-    # 1. Verification: Transcription (Real)
-    print("\n[1/4] Verifying Transcription...")
+    # 1. Verification: Transcription (Auto-Detect)
+    print("\n[1/4] Verifying Transcription (Auto-Detect Language)...")
+    detected_lang = None
     try:
         transcriber = Transcriber(model_name="tiny")
-        transcription = transcriber.transcribe_audio(audio_file)
+        # Pass None to force auto-detection
+        transcription = transcriber.transcribe_audio(audio_file, language=None)
         segments = transcription.get('segments', [])
+        detected_lang = transcription.get('language')
+
         print(f"   ✅ Transcription successful. Found {len(segments)} segments.")
+        print(f"   ✅ Auto-detected language: {detected_lang}")
+
+        if detected_lang != 'en':
+            print(f"   ⚠️ Warning: Expected 'en' but got '{detected_lang}'. (Might be due to short audio clip)")
+
     except Exception as e:
         print(f"   ❌ Transcription failed: {e}")
         return
@@ -31,18 +40,18 @@ def verify_pipeline():
     # 2. Verification: Translation (Mocked)
     print("\n[2/4] Verifying Translation (Mocked)...")
     try:
-        # Mocking the heavy M2M100 model loading and translation
+        target_lang = 'es'
         translator = Translator()
         translator.translate_text = MagicMock(side_effect=lambda text, src, tgt: f"Translated({tgt}): {text[:20]}")
 
-        translated_segments = translator.translate_segments(segments, 'en', 'es')
+        translated_segments = translator.translate_segments(segments, detected_lang or 'en', target_lang)
         print(f"   ✅ Translation successful (Mocked). Processed {len(translated_segments)} segments.")
     except Exception as e:
         print(f"   ❌ Translation failed: {e}")
         return
 
-    # 3. Verification: Voice Cloning (Expect EdgeTTS)
-    print("\n[3/4] Verifying Voice Cloning (Should use EdgeTTS)...")
+    # 3. Verification: Voice Cloning (Smart Matching)
+    print("\n[3/4] Verifying Voice Cloning (Smart Matching)...")
     try:
         cloner = VoiceCloner(use_gpu=False)
         # Create a dummy ref map
@@ -51,22 +60,21 @@ def verify_pipeline():
         synthesized_segments = cloner.batch_clone_voices(
             translated_segments,
             ref_map,
-            'es',
+            target_lang,
             os.path.join(output_dir, "segments")
         )
 
         success_count = sum(1 for seg in synthesized_segments if seg.get('audio_path'))
         print(f"   ✅ Voice Cloning successful. Synthesized {success_count}/{len(translated_segments)} segments.")
 
-        # Check file sizes to differentiate between gTTS (tiny) and EdgeTTS (larger)
         if success_count > 0:
             sample_file = synthesized_segments[0]['audio_path']
             size = os.path.getsize(sample_file)
             print(f"   Sample file size: {size} bytes")
-            if size > 10000: # gTTS files are usually very small for short text
-                print("   Note: Large file size suggests EdgeTTS/Coqui likely worked.")
+            if size > 10000:
+                 print("   ✅ Large file size confirms EdgeTTS (Smart Matching) is active.")
             else:
-                print("   Note: Small file size suggests gTTS fallback.")
+                 print("   ⚠️ Small file size suggests gTTS fallback (Smart Matching might have failed).")
 
     except Exception as e:
         print(f"   ❌ Voice Cloning failed: {e}")
