@@ -582,3 +582,18 @@ Check the documentation of torch.load to learn more about types accepted by defa
 2026-01-30 11:54:47 - src.dubsmart.modules.cloning - INFO - Matched input voice to gender: FEMALE
 2026-01-30 11:54:47 - src.dubsmart.modules.cloning - INFO - Selected EdgeTTS Voice: es-ES-ElviraNeural
 2026-01-30 11:54:47 - src.dubsmart.processor.mixer - INFO - Mixed audio saved to: output/verification/final_dub.wav
+2026-01-30 16:16:09 - src.dubsmart.modules.transcription - INFO - Initializing Whisper model: tiny on cpu
+2026-01-30 16:16:27 - src.dubsmart.modules.translation - INFO - Translator initialized with method: m2m100
+2026-01-30 16:16:27 - src.dubsmart.core.pipeline - INFO - Starting pipeline for test_audio/short_test.wav
+2026-01-30 16:16:27 - src.dubsmart.modules.transcription - INFO - Transcribing audio: test_audio/short_test.wav
+2026-01-30 16:16:30 - src.dubsmart.modules.transcription - INFO - Detected language: en
+2026-01-30 16:16:30 - src.dubsmart.core.pipeline - INFO - Auto-detected source language as: en
+2026-01-30 16:16:30 - src.dubsmart.modules.diarization - INFO - Diarizing audio: test_audio/short_test.wav
+2026-01-30 16:16:30 - src.dubsmart.modules.cloning - WARNING - TTS library not installed. Using Smart EdgeTTS fallback.
+2026-01-30 16:16:30 - src.dubsmart.modules.cloning - INFO - Using Smart EdgeTTS fallback for es...
+2026-01-30 16:16:33 - src.dubsmart.modules.cloning - INFO - Detected average pitch: 736.30 Hz
+2026-01-30 16:16:33 - src.dubsmart.modules.cloning - INFO - Matched input voice to gender: FEMALE
+2026-01-30 16:16:33 - src.dubsmart.modules.cloning - INFO - Selected EdgeTTS Voice: es-ES-ElviraNeural
+2026-01-30 16:16:34 - src.dubsmart.core.pipeline - INFO - Synthesized 1/1 segments
+2026-01-30 16:16:34 - src.dubsmart.modules.cloning - INFO - Detected average pitch: 736.30 Hz
+2026-01-30 16:16:34 - src.dubsmart.processor.mixer - INFO - Mixed audio saved to: output/verification/metadata_test.wav

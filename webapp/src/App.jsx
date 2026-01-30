@@ -9,6 +9,7 @@ function App() {
   const [progress, setProgress] = useState(0);
   const [status, setStatus] = useState('Ready to dub your audio');
   const [result, setResult] = useState(null);
+  const [metadata, setMetadata] = useState(null);
 
   const handleUpload = (e) => {
     const uploadedFile = e.target.files[0];
@@ -23,6 +24,7 @@ function App() {
 
     setIsProcessing(true);
     setResult(null);
+    setMetadata(null);
     setProgress(5);
     setStatus('Uploading and initializing pipeline...');
 
@@ -49,6 +51,7 @@ function App() {
 
           setProgress(statusData.progress || 10);
           setStatus(statusData.message || 'Processing...');
+          setMetadata(statusData.metadata || null);
 
           if (statusData.status === 'completed') {
             clearInterval(pollInterval);
@@ -160,6 +163,33 @@ function App() {
               <div className="progress-fill" style={{ width: `${progress}%` }}></div>
             </div>
             <div className="status-text">{status}</div>
+          </div>
+        )}
+
+        {metadata && (metadata.detected_gender || metadata.selected_voice) && (
+          <div className="metadata-section fadeIn" style={{ marginTop: '1rem', padding: '1rem', background: '#f8f9fa', borderRadius: '8px', border: '1px solid #e9ecef' }}>
+            <h4 style={{ margin: '0 0 0.5rem 0', color: '#495057' }}>Processing Details</h4>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '1rem' }}>
+              {metadata.detected_language && (
+                <div>
+                  <small style={{ color: '#6c757d', display: 'block' }}>Detected Language</small>
+                  <strong>{metadata.detected_language.toUpperCase()}</strong>
+                </div>
+              )}
+              {metadata.detected_gender && (
+                <div>
+                  <small style={{ color: '#6c757d', display: 'block' }}>Detected Gender</small>
+                  <strong>{metadata.detected_gender === 'female' ? '♀️ Female' : '♂️ Male'}</strong>
+                  <span style={{ marginLeft: '0.5rem', fontSize: '0.7em', background: '#28a745', color: 'white', padding: '2px 6px', borderRadius: '4px' }}>Smart Match</span>
+                </div>
+              )}
+              {metadata.selected_voice && (
+                 <div>
+                  <small style={{ color: '#6c757d', display: 'block' }}>Selected Voice</small>
+                  <code style={{ fontSize: '0.9em' }}>{metadata.selected_voice}</code>
+                </div>
+              )}
+            </div>
           </div>
         )}
 

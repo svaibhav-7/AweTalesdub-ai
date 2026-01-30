@@ -23,7 +23,8 @@ def create_job(filename: str, file_obj) -> str:
         "status": "processing", 
         "progress": 0, 
         "message": "Starting pipeline...",
-        "input_path": input_path
+        "input_path": input_path,
+        "metadata": {}
     }
     return job_id
 
@@ -44,12 +45,13 @@ def run_pipeline_task(job_id: str, src_lang: str, tgt_lang: str):
         job["progress"] = 20
         job["message"] = "Transcribing & Diarizing..."
         
-        pipeline.process(input_path, output_path)
+        result = pipeline.process(input_path, output_path)
         
         job["status"] = "completed"
         job["progress"] = 100
         job["message"] = "Dubbing finished successfully!"
-        job["output_file"] = output_path
+        job["output_file"] = result["output_path"]
+        job["metadata"] = result.get("metadata", {})
         
     except Exception as e:
         logger.error(f"Job {job_id} failed: {e}")
