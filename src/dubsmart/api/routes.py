@@ -27,3 +27,8 @@ async def download_result(job_id: str):
     if not job or job.get("status") != "completed":
         return JSONResponse(status_code=400, content={"message": "File not ready"})
     return FileResponse(job["output_file"])
+
+@router.get("/health")
+async def health_check():
+    """Health check endpoint for Render"""
+    return {"status": "healthy", "service": "dubsmart-api"}
