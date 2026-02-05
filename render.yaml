@@ -20,9 +20,8 @@ services:
       sizeGB: 10
 
   # Frontend Static Site - React/Vite
-  - type: web
+  - type: static
     name: dubsmart-frontend
-    runtime: static
     buildCommand: |
       cd webapp
       npm install
@@ -30,10 +29,7 @@ services:
     staticPublishPath: ./webapp/dist
     envVars:
       - key: VITE_API_URL
-        fromService:
-          type: web
-          name: dubsmart-api
-          envVarKey: RENDER_EXTERNAL_URL
+        sync: false
     routes:
       - type: rewrite
         source: /*
