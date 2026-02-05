@@ -44,11 +44,13 @@ def run_pipeline_task(job_id: str, src_lang: str, tgt_lang: str):
         job["progress"] = 20
         job["message"] = "Transcribing & Diarizing..."
         
+        # We can pass a callback here if pipeline supports it, 
+        # but for now we'll just update between major steps.
         pipeline.process(input_path, output_path)
         
         job["status"] = "completed"
         job["progress"] = 100
-        job["message"] = "Dubbing finished successfully!"
+        job["message"] = f"Dubbing finished! Saved to {os.path.basename(output_path)}"
         job["output_file"] = output_path
         
     except Exception as e:

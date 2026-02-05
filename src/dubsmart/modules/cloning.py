@@ -16,6 +16,17 @@ class VoiceCloner:
         self.use_gpu = use_gpu
         self.device = "cuda" if (use_gpu and torch.cuda.is_available()) else "cpu"
         self.model = None
+
+        # Fix PyTorch 2.6+ weights_only issue for Coqui
+        if hasattr(torch.serialization, 'add_safe_globals'):
+             try:
+                 # We try to import the config class to allowlist it
+                 from TTS.tts.configs.xtts_config import XttsConfig
+                 torch.serialization.add_safe_globals([XttsConfig])
+                 logger.info("Added XttsConfig to PyTorch safe globals.")
+             except Exception:
+                 # Fallback to disabling weights_only if we can't find the class
+                 os.environ['TORCH_FORCE_WEIGHTS_ONLY_LOAD'] = '0'
         
         # EdgeTTS Voice Database (Gender-mapped)
         self.edge_voice_map = {
@@ -34,7 +45,7 @@ class VoiceCloner:
             return
         try:
             import os
-            # Work around PyTorch 2.6 weights_only issue
+            # Ensure weights_only is disabled via environment as a double safety
             os.environ['TORCH_FORCE_WEIGHTS_ONLY_LOAD'] = '0'
 
             from TTS.api import TTS
