@@ -608,3 +608,85 @@ Check the documentation of torch.load to learn more about types accepted by defa
 2026-02-05 10:05:24 - dubsmart.core.pipeline - INFO - Auto-detected source language as: en
 2026-02-05 10:05:24 - dubsmart.modules.diarization - INFO - Diarizing audio: temp/a8a1ee81-aa74-44cf-88be-a2ba66c7592e\short_test.wav
 2026-02-05 10:05:24 - dubsmart.modules.translation - INFO - Translating 2 segments from en to hi
+2026-02-07 19:20:58 - dubsmart.modules.transcription - INFO - Initializing Whisper model: small on cpu
+2026-02-07 19:21:44 - dubsmart.modules.translation - INFO - Translator initialized with method: m2m100
+2026-02-07 19:25:07 - dubsmart.modules.cloning - INFO - Added XttsConfig to PyTorch safe globals.
+2026-02-07 19:25:07 - dubsmart.core.pipeline - INFO - Starting pipeline for temp/8f78fe35-c489-49db-8573-b574540930fd\short_test.wav
+2026-02-07 19:25:07 - dubsmart.modules.transcription - INFO - Transcribing audio: temp/8f78fe35-c489-49db-8573-b574540930fd\short_test.wav
+2026-02-07 19:25:27 - dubsmart.modules.transcription - INFO - Detected language: en
+2026-02-07 19:25:27 - dubsmart.core.pipeline - INFO - Auto-detected source language as: en
+2026-02-07 19:25:27 - dubsmart.modules.diarization - INFO - Diarizing audio: temp/8f78fe35-c489-49db-8573-b574540930fd\short_test.wav
+2026-02-07 19:25:27 - dubsmart.modules.translation - INFO - Translating 2 segments from en to hi
+2026-02-07 20:41:58 - dubsmart.api.logic - ERROR - Job a5fa5501-866d-4c22-bf65-f76e55e6da87 failed: No module named 'torch._C'
+2026-02-07 20:47:13 - dubsmart.modules.transcription - INFO - Initializing Whisper model: small on cpu
+2026-02-07 20:48:31 - dubsmart.api.logic - ERROR - Job 6bee5b6b-4eed-4c55-b64d-1e632b811b21 failed: numpy.dtype size changed, may indicate binary incompatibility. Expected 96 from C header, got 88 from PyObject
+2026-02-07 20:50:59 - dubsmart.modules.transcription - INFO - Initializing Whisper model: small on cpu
+2026-02-07 20:51:34 - dubsmart.modules.translation - INFO - Translator initialized with method: m2m100
+2026-02-07 20:52:07 - dubsmart.modules.cloning - WARNING - Could not auto-register XttsConfig: cannot import name 'BeamSearchScorer' from 'transformers' (C:\Users\svrao\Downloads\Dubsmart  - ai\.venv\Lib\site-packages\transformers\__init__.py). Will attempt weights_only=False on load.
+2026-02-07 20:52:07 - dubsmart.api.logic - INFO - Job 1fa2624a-8026-4dcb-baa2-f6b37d47c913: Transcribing audio...
+2026-02-07 20:52:07 - dubsmart.core.pipeline - INFO - Starting pipeline for temp/1fa2624a-8026-4dcb-baa2-f6b37d47c913\short_test.wav
+2026-02-07 20:52:07 - dubsmart.modules.transcription - INFO - Transcribing audio: temp/1fa2624a-8026-4dcb-baa2-f6b37d47c913\short_test.wav
+2026-02-07 20:52:16 - dubsmart.modules.transcription - INFO - Detected language: en
+2026-02-07 20:52:16 - dubsmart.core.pipeline - INFO - Auto-detected source language as: en
+2026-02-07 20:52:16 - dubsmart.modules.diarization - INFO - Diarizing audio: temp/1fa2624a-8026-4dcb-baa2-f6b37d47c913\short_test.wav
+2026-02-07 20:52:16 - dubsmart.modules.translation - INFO - Translating 2 segments from en to hi
+2026-02-07 20:52:42 - dubsmart.core.pipeline - INFO - Synthesizing 2 segments to 'hi' using cloned/matched voices...
+2026-02-07 20:53:09 - dubsmart.modules.cloning - INFO - Loading Coqui XTTS-v2 model (Lazy Load)...
+2026-02-07 20:53:12 - dubsmart.modules.cloning - ERROR - Failed to load Coqui model: cannot import name 'BeamSearchScorer' from 'transformers' (C:\Users\svrao\Downloads\Dubsmart  - ai\.venv\Lib\site-packages\transformers\__init__.py)
+2026-02-07 20:53:12 - dubsmart.modules.cloning - INFO - Model loading failed, will use fallback synthesis
+2026-02-07 20:53:12 - dubsmart.modules.cloning - INFO - Using Smart EdgeTTS fallback for hi...
+2026-02-07 20:53:13 - dubsmart.modules.cloning - INFO - Detected average pitch: 736.30 Hz
+2026-02-07 20:53:13 - dubsmart.modules.cloning - INFO - Matched input voice to gender: FEMALE
+2026-02-07 20:53:13 - dubsmart.modules.cloning - INFO - Selected EdgeTTS Voice: hi-IN-SwaraNeural
+2026-02-07 20:53:13 - dubsmart.modules.cloning - ERROR - EdgeTTS fallback failed: No module named 'edge_tts'. Switching to gTTS.
+2026-02-07 20:53:13 - dubsmart.modules.cloning - INFO - Using gTTS fallback...
+2026-02-07 20:53:14 - dubsmart.modules.cloning - INFO - Loading Coqui XTTS-v2 model (Lazy Load)...
+2026-02-07 20:53:14 - dubsmart.modules.cloning - ERROR - Failed to load Coqui model: cannot import name 'BeamSearchScorer' from 'transformers' (C:\Users\svrao\Downloads\Dubsmart  - ai\.venv\Lib\site-packages\transformers\__init__.py)
+2026-02-07 20:53:14 - dubsmart.modules.cloning - INFO - Model loading failed, will use fallback synthesis
+2026-02-07 20:53:14 - dubsmart.modules.cloning - INFO - Using Smart EdgeTTS fallback for hi...
+2026-02-07 20:53:14 - dubsmart.modules.cloning - INFO - Detected average pitch: 736.30 Hz
+2026-02-07 20:53:14 - dubsmart.modules.cloning - INFO - Matched input voice to gender: FEMALE
+2026-02-07 20:53:14 - dubsmart.modules.cloning - INFO - Selected EdgeTTS Voice: hi-IN-SwaraNeural
+2026-02-07 20:53:14 - dubsmart.modules.cloning - ERROR - EdgeTTS fallback failed: No module named 'edge_tts'. Switching to gTTS.
+2026-02-07 20:53:14 - dubsmart.modules.cloning - INFO - Using gTTS fallback...
+2026-02-07 20:53:15 - dubsmart.core.pipeline - INFO - Successfully synthesized 2/2 segments.
+2026-02-07 20:53:17 - dubsmart.processor.mixer - INFO - Mixed audio saved to: output/dubbed_1fa2624a-8026-4dcb-baa2-f6b37d47c913_hi.wav
+2026-02-07 20:53:17 - dubsmart.api.logic - INFO - Job 1fa2624a-8026-4dcb-baa2-f6b37d47c913: Completed successfully
+2026-02-07 21:05:08 - dubsmart.modules.transcription - INFO - Initializing Whisper model: small on cpu
+2026-02-07 21:05:39 - dubsmart.modules.translation - INFO - Translator initialized with method: m2m100
+2026-02-07 21:06:16 - dubsmart.modules.cloning - INFO - Added XttsConfig to PyTorch safe globals.
+2026-02-07 21:06:16 - dubsmart.api.logic - INFO - Job 0f7a5c80-a06a-45de-a7bc-f569c29d7ee1: Transcribing audio...
+2026-02-07 21:06:16 - dubsmart.core.pipeline - INFO - Starting pipeline for temp/0f7a5c80-a06a-45de-a7bc-f569c29d7ee1\short_test.wav
+2026-02-07 21:06:16 - dubsmart.modules.transcription - INFO - Transcribing audio: temp/0f7a5c80-a06a-45de-a7bc-f569c29d7ee1\short_test.wav
+2026-02-07 21:06:25 - dubsmart.modules.transcription - INFO - Detected language: en
+2026-02-07 21:06:25 - dubsmart.core.pipeline - INFO - Auto-detected source language as: en
+2026-02-07 21:06:25 - dubsmart.modules.diarization - INFO - Diarizing audio: temp/0f7a5c80-a06a-45de-a7bc-f569c29d7ee1\short_test.wav
+2026-02-07 21:06:25 - dubsmart.modules.translation - INFO - Translating 2 segments from en to hi
+2026-02-07 21:20:07 - dubsmart.core.pipeline - INFO - Synthesizing 2 segments to 'hi' using cloned/matched voices...
+2026-02-07 21:25:47 - dubsmart.modules.cloning - INFO - Loading Coqui XTTS-v2 model (Lazy Load)...
+2026-02-07 21:28:31 - dubsmart.modules.cloning - ERROR - Failed to load Coqui model: Weights only load failed. This file can still be loaded, to do so you have two options, [1mdo those steps only if you trust the source of the checkpoint[0m. 
+	(1) In PyTorch 2.6, we changed the default value of the `weights_only` argument in `torch.load` from `False` to `True`. Re-running `torch.load` with `weights_only` set to `False` will likely succeed, but it can result in arbitrary code execution. Do it only if you got the file from a trusted source.
+	(2) Alternatively, to load with `weights_only=True` please check the recommended steps in the following error message.
+	WeightsUnpickler error: Unsupported global: GLOBAL TTS.tts.models.xtts.XttsAudioConfig was not an allowed global by default. Please use `torch.serialization.add_safe_globals([TTS.tts.models.xtts.XttsAudioConfig])` or the `torch.serialization.safe_globals([TTS.tts.models.xtts.XttsAudioConfig])` context manager to allowlist this global if you trust this class/function.
+
+Check the documentation of torch.load to learn more about types accepted by default with weights_only https://pytorch.org/docs/stable/generated/torch.load.html.
+2026-02-07 21:28:33 - dubsmart.modules.cloning - INFO - Model loading failed, will use fallback synthesis
+2026-02-07 21:28:35 - dubsmart.modules.cloning - INFO - Using Smart EdgeTTS fallback for hi...
+2026-02-07 21:30:10 - dubsmart.modules.cloning - INFO - Detected average pitch: 736.30 Hz
+2026-02-07 21:30:10 - dubsmart.modules.cloning - INFO - Matched input voice to gender: FEMALE
+2026-02-07 21:30:11 - dubsmart.modules.cloning - INFO - Selected EdgeTTS Voice: hi-IN-SwaraNeural
+2026-02-07 21:31:04 - dubsmart.modules.cloning - INFO - Loading Coqui XTTS-v2 model (Lazy Load)...
+2026-02-07 23:26:33 - dubsmart.modules.cloning - ERROR - Failed to load Coqui model: Weights only load failed. This file can still be loaded, to do so you have two options, [1mdo those steps only if you trust the source of the checkpoint[0m. 
+	(1) In PyTorch 2.6, we changed the default value of the `weights_only` argument in `torch.load` from `False` to `True`. Re-running `torch.load` with `weights_only` set to `False` will likely succeed, but it can result in arbitrary code execution. Do it only if you got the file from a trusted source.
+	(2) Alternatively, to load with `weights_only=True` please check the recommended steps in the following error message.
+	WeightsUnpickler error: Unsupported global: GLOBAL TTS.tts.models.xtts.XttsAudioConfig was not an allowed global by default. Please use `torch.serialization.add_safe_globals([TTS.tts.models.xtts.XttsAudioConfig])` or the `torch.serialization.safe_globals([TTS.tts.models.xtts.XttsAudioConfig])` context manager to allowlist this global if you trust this class/function.
+
+Check the documentation of torch.load to learn more about types accepted by default with weights_only https://pytorch.org/docs/stable/generated/torch.load.html.
+2026-02-07 23:26:35 - dubsmart.modules.cloning - INFO - Model loading failed, will use fallback synthesis
+2026-02-07 23:26:38 - dubsmart.modules.cloning - INFO - Using Smart EdgeTTS fallback for hi...
+2026-02-07 23:26:55 - dubsmart.modules.cloning - INFO - Detected average pitch: 736.30 Hz
+2026-02-07 23:26:55 - dubsmart.modules.cloning - INFO - Matched input voice to gender: FEMALE
+2026-02-07 23:26:55 - dubsmart.modules.cloning - INFO - Selected EdgeTTS Voice: hi-IN-SwaraNeural
+2026-02-07 23:27:09 - dubsmart.core.pipeline - INFO - Successfully synthesized 2/2 segments.
+2026-02-07 23:27:43 - dubsmart.processor.mixer - INFO - Mixed audio saved to: output/dubbed_0f7a5c80-a06a-45de-a7bc-f569c29d7ee1_hi.wav
+2026-02-07 23:27:43 - dubsmart.api.logic - INFO - Job 0f7a5c80-a06a-45de-a7bc-f569c29d7ee1: Completed successfully

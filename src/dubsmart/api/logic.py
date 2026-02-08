@@ -28,9 +28,11 @@ def create_job(filename: str, file_obj) -> str:
     return job_id
 
 def run_pipeline_task(job_id: str, src_lang: str, tgt_lang: str):
+    """Run pipeline with proper error handling and progress tracking."""
     try:
         job = jobs.get(job_id)
-        if not job: return
+        if not job: 
+            return
         
         input_path = job["input_path"]
         output_path = f"output/dubbed_{job_id}_{tgt_lang}.wav"
@@ -39,22 +41,38 @@ def run_pipeline_task(job_id: str, src_lang: str, tgt_lang: str):
         # Resolve 'auto' to None for the pipeline
         actual_src = None if src_lang == "auto" else src_lang
         
+        # Validate target language
+        from dubsmart.utils.config import SUPPORTED_LANGUAGES
+        if tgt_lang not in SUPPORTED_LANGUAGES:
+            raise ValueError(f"Target language '{tgt_lang}' not supported. Choose from: {', '.join(SUPPORTED_LANGUAGES.keys())}")
+        
         pipeline = DubbingPipeline(src_lang=actual_src, tgt_lang=tgt_lang)
         
         job["progress"] = 20
         job["message"] = "Transcribing & Diarizing..."
+        logger.info(f"Job {job_id}: Transcribing audio...")
         
-        # We can pass a callback here if pipeline supports it, 
-        # but for now we'll just update between major steps.
-        pipeline.process(input_path, output_path)
-        
-        job["status"] = "completed"
-        job["progress"] = 100
-        job["message"] = f"Dubbing finished! Saved to {os.path.basename(output_path)}"
-        job["output_file"] = output_path
+        # Run pipeline with error handling at each stage
+        try:
+            result = pipeline.process(input_path, output_path)
+            
+            if not result or not os.path.exists(result):
+                raise RuntimeError("Pipeline completed but output file not found")
+            
+            job["status"] = "completed"
+            job["progress"] = 100
+            job["message"] = f"Dubbing finished! Saved to {os.path.basename(result)}"
+            job["output_file"] = result
+            logger.info(f"Job {job_id}: Completed successfully")
+            
+        except Exception as pipeline_err:
+            logger.error(f"Job {job_id} pipeline error: {pipeline_err}")
+            jobs[job_id]["status"] = "failed"
+            jobs[job_id]["message"] = f"Pipeline error: {str(pipeline_err)}"
+            return
         
     except Exception as e:
         logger.error(f"Job {job_id} failed: {e}")
         if job_id in jobs:
             jobs[job_id]["status"] = "failed"
-            jobs[job_id]["message"] = str(e)
+            jobs[job_id]["message"] = f"Error: {str(e)[:100]}"
