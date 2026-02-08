@@ -1,0 +1,36 @@
+services:
+  # Backend Web Service - FastAPI
+  - type: web
+    name: dubsmart-api
+    runtime: python
+    plan: starter  # Recommended: upgrade to starter or higher due to large AI models
+    buildCommand: |
+      apt-get update && apt-get install -y ffmpeg
+      pip install --upgrade pip
+      pip install -r requirements.txt
+    startCommand: "cd src && uvicorn dubsmart.api.main:app --host 0.0.0.0 --port $PORT"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: PYTHONUNBUFFERED
+        value: 1
+    disk:
+      name: dubsmart-models
+      mountPath: /root/.cache
+      sizeGB: 10
+
+  # Frontend Static Site - React/Vite
+  - type: static
+    name: dubsmart-frontend
+    buildCommand: |
+      cd webapp
+      npm install
+      npm run build
+    staticPublishPath: ./webapp/dist
+    envVars:
+      - key: VITE_API_URL
+        sync: false
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
