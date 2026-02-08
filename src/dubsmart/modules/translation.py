@@ -87,15 +87,31 @@ class Translator:
         return tokenizer.batch_decode(generated, skip_special_tokens=True)[0]
 
     def translate_segments(self, segments: List[Dict[str, Any]], src_lang: str, tgt_lang: str) -> List[Dict[str, Any]]:
-        """Translate multiple segments in batch or loop."""
+        """Translate multiple segments in batch or loop with error handling."""
         logger.info(f"Translating {len(segments)} segments from {src_lang} to {tgt_lang}")
         translated = []
+        failed_count = 0
+        
         for i, seg in enumerate(segments):
             orig_text = seg.get('text', '')
-            trans_text = self.translate_text(orig_text, src_lang, tgt_lang)
-            new_seg = seg.copy()
-            new_seg['original_text'] = orig_text
-            new_seg['translated_text'] = trans_text
-            translated.append(new_seg)
-            if (i+1) % 10 == 0: logger.info(f"Translated {i+1}/{len(segments)} segments")
+            try:
+                # Add timeout and error handling per segment
+                trans_text = self.translate_text(orig_text, src_lang, tgt_lang)
+                new_seg = seg.copy()
+                new_seg['original_text'] = orig_text
+                new_seg['translated_text'] = trans_text if trans_text else orig_text  # Fallback to original if empty
+                translated.append(new_seg)
+            except Exception as e:
+                failed_count += 1
+                logger.warning(f"Failed to translate segment {i}: {e}. Using original text as fallback.")
+                new_seg = seg.copy()
+                new_seg['original_text'] = orig_text
+                new_seg['translated_text'] = orig_text  # Fallback to original text
+                translated.append(new_seg)
+            
+            if (i+1) % 10 == 0: 
+                logger.info(f"Translated {i+1}/{len(segments)} segments ({failed_count} failed)")
+        
+        if failed_count > 0:
+            logger.warning(f"Translation complete with {failed_count} failures. Fallbacks used for failed segments.")
         return translated

@@ -6,6 +6,9 @@ from typing import Optional, List, Dict, Any
 from pydub import AudioSegment
 from ..utils import get_logger, get_temp_filename, ensure_dir
 
+# SET EARLY: Disable weights_only for PyTorch 2.6+ compatibility with TTS models
+os.environ['TORCH_FORCE_WEIGHTS_ONLY_LOAD'] = '0'
+
 logger = get_logger(__name__)
 
 class VoiceCloner:
@@ -16,6 +19,16 @@ class VoiceCloner:
         self.use_gpu = use_gpu
         self.device = "cuda" if (use_gpu and torch.cuda.is_available()) else "cpu"
         self.model = None
+
+        # Fix PyTorch 2.6+ weights_only issue for Coqui XTTS
+        try:
+            # Try to import and register the config class as a safe global
+            from TTS.tts.configs.xtts_config import XttsConfig
+            if hasattr(torch.serialization, 'add_safe_globals'):
+                torch.serialization.add_safe_globals([XttsConfig])
+                logger.info("Added XttsConfig to PyTorch safe globals.")
+        except Exception as err:
+            logger.warning(f"Could not auto-register XttsConfig: {err}. Will attempt weights_only=False on load.")
         
         # EdgeTTS Voice Database (Gender-mapped)
         self.edge_voice_map = {
@@ -34,7 +47,7 @@ class VoiceCloner:
             return
         try:
             import os
-            # Work around PyTorch 2.6 weights_only issue
+            # Ensure weights_only is disabled via environment as a double safety
             os.environ['TORCH_FORCE_WEIGHTS_ONLY_LOAD'] = '0'
             # Auto-agree to Coqui TOS
             os.environ['COQUI_TOS_AGREED'] = '1'

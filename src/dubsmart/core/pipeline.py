@@ -71,6 +71,7 @@ class DubbingPipeline:
         from ..utils.helpers import normalize_language_code
         xtts_lang = normalize_language_code(self.tgt_lang, target_model='xtts')
         
+        logger.info(f"Synthesizing {len(translated)} segments to '{xtts_lang}' using cloned/matched voices...")
         synthesized = self.cloner.batch_clone_voices(translated, ref_map, xtts_lang, "temp/syn")
         
         # Validation: Check if any audio was actually produced
@@ -79,7 +80,7 @@ class DubbingPipeline:
             logger.error("DUBBING FAILED: No segments were successfully synthesized. Check logs for model loading errors.")
             raise RuntimeError("Synthesis failed for all segments. Final output would be silent.")
         
-        logger.info(f"Synthesized {synthesized_count}/{len(synthesized)} segments")
+        logger.info(f"Successfully synthesized {synthesized_count}/{len(synthesized)} segments.")
         
         # 5. Mix
         return self.mixer.mix_audio(synthesized, output_path, original_audio_path=audio_path)
