@@ -20,6 +20,14 @@ class VoiceCloner:
         self.device = "cuda" if (use_gpu and torch.cuda.is_available()) else "cpu"
         self.model = None
 
+        # Fix torchaudio torchcodec compatibility issue
+        try:
+            import torchaudio
+            torchaudio.set_audio_backend("soundfile")
+            logger.info("Set torchaudio backend to soundfile (avoiding torchcodec issues)")
+        except Exception as e:
+            logger.warning(f"Could not set torchaudio backend: {e}")
+
         # Fix PyTorch 2.6+ weights_only issue for Coqui XTTS
         try:
             # Try to import and register the config class as a safe global
@@ -51,6 +59,8 @@ class VoiceCloner:
             os.environ['TORCH_FORCE_WEIGHTS_ONLY_LOAD'] = '0'
             # Auto-agree to Coqui TOS
             os.environ['COQUI_TOS_AGREED'] = '1'
+            # Disable torchcodec backend in torchaudio to prevent load errors
+            os.environ['TORCHAUDIO_USE_BACKEND_DISPATCHER'] = '0'
 
             import torch
             # Monkey-patch torch.load to default weights_only=False for Coqui
