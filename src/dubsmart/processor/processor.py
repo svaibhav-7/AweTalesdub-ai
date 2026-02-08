@@ -11,6 +11,7 @@ class AudioProcessor:
     def __init__(self, sample_rate: int = 16000):
         self.sample_rate = sample_rate
 
+
     def extract_audio(self, video_path: str, output_path: str) -> str:
         """Extract audio from video using FFmpeg."""
         logger.info(f"Extracting audio from {video_path}")
@@ -21,6 +22,9 @@ class AudioProcessor:
     def convert_audio(self, input_path: str, output_path: str) -> str:
         """Standardize audio format."""
         from pydub import AudioSegment
+        # Explicitly set ffmpeg and ffprobe path for pydub
+        AudioSegment.converter = r"D:\dubsmart_ai\AweTalesdub-ai\ffmpeg\bin\ffmpeg.exe"
+        AudioSegment.ffprobe = r"D:\dubsmart_ai\AweTalesdub-ai\ffmpeg\bin\ffprobe.exe"
         audio = AudioSegment.from_file(input_path)
         audio = audio.set_channels(1).set_frame_rate(self.sample_rate)
         audio.export(output_path, format='wav')

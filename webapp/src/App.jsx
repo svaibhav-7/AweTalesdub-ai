@@ -32,7 +32,7 @@ function App() {
       formData.append('src_lang', srcLang);
       formData.append('tgt_lang', tgtLang);
 
-      const response = await fetch('http://localhost:8001/dub', {
+      const response = await fetch('http://localhost:8000/dub', {
         method: 'POST',
         body: formData,
       });
@@ -44,7 +44,7 @@ function App() {
       // Start polling
       const pollInterval = setInterval(async () => {
         try {
-          const statusRes = await fetch(`http://localhost:8001/status/${job_id}`);
+          const statusRes = await fetch(`http://localhost:8000/status/${job_id}`);
           const statusData = await statusRes.json();
 
           setProgress(statusData.progress || 10);
@@ -53,7 +53,7 @@ function App() {
           if (statusData.status === 'completed') {
             clearInterval(pollInterval);
             setIsProcessing(false);
-            setResult(`http://localhost:8001/download/${job_id}`);
+            setResult(`http://localhost:8000/download/${job_id}`);
             setStatus('Dubbing complete!');
           } else if (statusData.status === 'failed') {
             clearInterval(pollInterval);

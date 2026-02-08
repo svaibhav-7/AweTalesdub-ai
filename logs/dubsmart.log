@@ -582,3 +582,382 @@ Check the documentation of torch.load to learn more about types accepted by defa
 2026-01-30 11:54:47 - src.dubsmart.modules.cloning - INFO - Matched input voice to gender: FEMALE
 2026-01-30 11:54:47 - src.dubsmart.modules.cloning - INFO - Selected EdgeTTS Voice: es-ES-ElviraNeural
 2026-01-30 11:54:47 - src.dubsmart.processor.mixer - INFO - Mixed audio saved to: output/verification/final_dub.wav
+2026-02-05 09:33:39 - dubsmart.modules.transcription - INFO - Initializing Whisper model: small on cpu
+2026-02-05 09:35:28 - dubsmart.modules.translation - INFO - Translator initialized with method: m2m100
+2026-02-05 09:35:28 - dubsmart.core.pipeline - INFO - Starting pipeline for temp/3c693996-12b1-4e1d-9d46-2119e3db4402\voice.wav
+2026-02-05 09:35:28 - dubsmart.modules.transcription - INFO - Transcribing audio: temp/3c693996-12b1-4e1d-9d46-2119e3db4402\voice.wav
+2026-02-05 09:35:28 - dubsmart.api.logic - ERROR - Job 3c693996-12b1-4e1d-9d46-2119e3db4402 failed: [WinError 2] The system cannot find the file specified
+2026-02-05 09:44:35 - dubsmart.modules.transcription - INFO - Initializing Whisper model: small on cpu
+2026-02-05 09:44:44 - dubsmart.modules.translation - INFO - Translator initialized with method: m2m100
+2026-02-05 09:44:44 - dubsmart.core.pipeline - INFO - Starting pipeline for temp/ea4bfcaf-8c10-4b89-90e0-b7a88d64a2ba\voice.wav
+2026-02-05 09:44:44 - dubsmart.modules.transcription - INFO - Transcribing audio: temp/ea4bfcaf-8c10-4b89-90e0-b7a88d64a2ba\voice.wav
+2026-02-05 09:44:44 - dubsmart.api.logic - ERROR - Job ea4bfcaf-8c10-4b89-90e0-b7a88d64a2ba failed: [WinError 2] The system cannot find the file specified
+2026-02-05 09:46:31 - dubsmart.modules.transcription - INFO - Initializing Whisper model: small on cpu
+2026-02-05 09:46:34 - dubsmart.modules.translation - INFO - Translator initialized with method: m2m100
+2026-02-05 09:46:34 - dubsmart.core.pipeline - INFO - Starting pipeline for temp/d3ee59bf-9861-4dac-b480-c5ffc4a418d0\voice.wav
+2026-02-05 09:46:34 - dubsmart.modules.transcription - INFO - Transcribing audio: temp/d3ee59bf-9861-4dac-b480-c5ffc4a418d0\voice.wav
+2026-02-05 09:46:34 - dubsmart.api.logic - ERROR - Job d3ee59bf-9861-4dac-b480-c5ffc4a418d0 failed: [WinError 2] The system cannot find the file specified
+2026-02-05 09:47:13 - dubsmart.modules.transcription - INFO - Initializing Whisper model: small on cpu
+2026-02-05 09:47:16 - dubsmart.modules.translation - INFO - Translator initialized with method: m2m100
+2026-02-05 09:47:16 - dubsmart.core.pipeline - INFO - Starting pipeline for temp/8c8dc74d-e331-4e76-b8d9-0fd2d96a37a1\voice.wav
+2026-02-05 09:47:16 - dubsmart.modules.transcription - INFO - Transcribing audio: temp/8c8dc74d-e331-4e76-b8d9-0fd2d96a37a1\voice.wav
+2026-02-05 09:47:16 - dubsmart.api.logic - ERROR - Job 8c8dc74d-e331-4e76-b8d9-0fd2d96a37a1 failed: [WinError 2] The system cannot find the file specified
+2026-02-05 09:47:22 - dubsmart.modules.transcription - INFO - Initializing Whisper model: small on cpu
+2026-02-05 09:47:24 - dubsmart.modules.translation - INFO - Translator initialized with method: m2m100
+2026-02-05 09:47:24 - dubsmart.core.pipeline - INFO - Starting pipeline for temp/0519bf57-5534-4b4d-99a7-26924f83d5c3\voice.wav
+2026-02-05 09:47:24 - dubsmart.modules.transcription - INFO - Transcribing audio: temp/0519bf57-5534-4b4d-99a7-26924f83d5c3\voice.wav
+2026-02-05 09:47:24 - dubsmart.api.logic - ERROR - Job 0519bf57-5534-4b4d-99a7-26924f83d5c3 failed: [WinError 2] The system cannot find the file specified
+2026-02-05 09:49:49 - dubsmart.modules.transcription - INFO - Initializing Whisper model: small on cpu
+2026-02-05 09:49:57 - dubsmart.modules.translation - INFO - Translator initialized with method: m2m100
+2026-02-05 09:49:57 - dubsmart.core.pipeline - INFO - Starting pipeline for temp/450cf39f-e5d9-41a8-916d-58f15ddf2887\voice.wav
+2026-02-05 09:49:57 - dubsmart.modules.transcription - INFO - Transcribing audio: temp/450cf39f-e5d9-41a8-916d-58f15ddf2887\voice.wav
+2026-02-05 09:49:57 - dubsmart.api.logic - ERROR - Job 450cf39f-e5d9-41a8-916d-58f15ddf2887 failed: [WinError 2] The system cannot find the file specified
+2026-02-07 21:39:23 - dubsmart.modules.transcription - INFO - Initializing Whisper model: small on cpu
+2026-02-07 21:40:01 - dubsmart.modules.translation - INFO - Translator initialized with method: m2m100
+2026-02-07 21:40:01 - dubsmart.core.pipeline - INFO - Starting pipeline for temp/35de2336-156d-4d8e-9ace-bbe578bea792\voice.wav
+2026-02-07 21:40:01 - dubsmart.modules.transcription - INFO - Transcribing audio: temp/35de2336-156d-4d8e-9ace-bbe578bea792\voice.wav
+2026-02-07 21:40:08 - dubsmart.modules.transcription - INFO - Detected language: en
+2026-02-07 21:40:08 - dubsmart.core.pipeline - INFO - Auto-detected source language as: en
+2026-02-07 21:40:08 - dubsmart.modules.diarization - INFO - Diarizing audio: temp/35de2336-156d-4d8e-9ace-bbe578bea792\voice.wav
+2026-02-07 21:40:08 - dubsmart.modules.translation - INFO - Translating 1 segments from en to hi
+2026-02-07 21:46:19 - dubsmart.modules.cloning - WARNING - TTS library not installed. Using Smart EdgeTTS fallback.
+2026-02-07 21:46:19 - dubsmart.modules.cloning - INFO - Using Smart EdgeTTS fallback for hi...
+2026-02-07 21:46:43 - dubsmart.modules.cloning - INFO - Detected average pitch: 1155.71 Hz
+2026-02-07 21:46:43 - dubsmart.modules.cloning - INFO - Matched input voice to gender: FEMALE
+2026-02-07 21:46:43 - dubsmart.modules.cloning - INFO - Selected EdgeTTS Voice: hi-IN-SwaraNeural
+2026-02-07 21:46:59 - dubsmart.core.pipeline - INFO - Synthesized 1/1 segments
+2026-02-07 21:47:00 - dubsmart.processor.mixer - INFO - Mixed audio saved to: output/dubbed_35de2336-156d-4d8e-9ace-bbe578bea792_hi.wav
+2026-02-08 08:49:43 - dubsmart.modules.transcription - INFO - Initializing Whisper model: small on cpu
+2026-02-08 08:51:21 - dubsmart.modules.translation - INFO - Translator initialized with method: m2m100
+2026-02-08 08:51:21 - dubsmart.core.pipeline - INFO - Starting pipeline for temp/e4a50557-71d7-4f01-883a-2af3fef0b425\voice.wav
+2026-02-08 08:51:21 - dubsmart.modules.transcription - INFO - Transcribing audio: temp/e4a50557-71d7-4f01-883a-2af3fef0b425\voice.wav
+2026-02-08 08:51:31 - dubsmart.modules.transcription - INFO - Detected language: en
+2026-02-08 08:51:31 - dubsmart.core.pipeline - INFO - Auto-detected source language as: en
+2026-02-08 08:51:31 - dubsmart.modules.diarization - INFO - Diarizing audio: temp/e4a50557-71d7-4f01-883a-2af3fef0b425\voice.wav
+2026-02-08 08:51:31 - dubsmart.modules.translation - INFO - Translating 1 segments from en to te
+2026-02-08 08:51:44 - dubsmart.api.logic - ERROR - Job e4a50557-71d7-4f01-883a-2af3fef0b425 failed: 'te'
+2026-02-08 09:03:35 - dubsmart.modules.translation - INFO - Translator initialized with method: m2m100
+2026-02-08 09:04:42 - dubsmart.modules.translation - INFO - Translator initialized with method: None
+2026-02-08 09:04:42 - dubsmart.modules.translation - INFO - Loading NLLB model: facebook/nllb-200-distilled-600M
+2026-02-08 09:07:03 - dubsmart.modules.translation - INFO - Translator initialized with method: None
+2026-02-08 09:07:03 - dubsmart.modules.translation - INFO - Loading NLLB model: facebook/nllb-200-distilled-600M
+2026-02-08 09:12:04 - dubsmart.modules.transcription - INFO - Initializing Whisper model: small on cpu
+2026-02-08 09:12:06 - dubsmart.api.logic - ERROR - Job 0f71d040-0e46-4286-9bf9-9730d338741b failed: [Errno 22] Invalid argument
+2026-02-08 09:12:23 - dubsmart.modules.transcription - INFO - Initializing Whisper model: small on cpu
+2026-02-08 09:12:50 - dubsmart.modules.translation - INFO - Translator initialized with method: None
+2026-02-08 09:12:50 - dubsmart.core.pipeline - INFO - Starting pipeline for temp/250413ba-39ad-43b3-bc9b-9dccfcc5eba1\voice.wav
+2026-02-08 09:12:50 - dubsmart.modules.transcription - INFO - Transcribing audio: temp/250413ba-39ad-43b3-bc9b-9dccfcc5eba1\voice.wav
+2026-02-08 09:13:09 - dubsmart.modules.transcription - INFO - Detected language: en
+2026-02-08 09:13:09 - dubsmart.core.pipeline - INFO - Auto-detected source language as: en
+2026-02-08 09:13:09 - dubsmart.modules.diarization - INFO - Diarizing audio: temp/250413ba-39ad-43b3-bc9b-9dccfcc5eba1\voice.wav
+2026-02-08 09:13:09 - dubsmart.modules.translation - INFO - Translating 1 segments from en to hi
+2026-02-08 09:13:09 - dubsmart.modules.translation - INFO - Loading NLLB model: facebook/nllb-200-distilled-600M
+2026-02-08 09:13:32 - dubsmart.api.logic - ERROR - Job 250413ba-39ad-43b3-bc9b-9dccfcc5eba1 failed: TokenizersBackend has no attribute lang_code_to_id
+2026-02-08 09:28:24 - dubsmart.modules.transcription - INFO - Initializing Whisper model: small on cpu
+2026-02-08 09:28:45 - dubsmart.modules.translation - INFO - Translator initialized with method: None
+2026-02-08 09:28:45 - dubsmart.core.pipeline - INFO - Starting pipeline for temp/d57e4750-6339-4fa5-82b8-24ce032ce48d\voice.wav
+2026-02-08 09:28:45 - dubsmart.modules.transcription - INFO - Transcribing audio: temp/d57e4750-6339-4fa5-82b8-24ce032ce48d\voice.wav
+2026-02-08 09:28:57 - dubsmart.modules.transcription - INFO - Detected language: en
+2026-02-08 09:28:57 - dubsmart.core.pipeline - INFO - Auto-detected source language as: en
+2026-02-08 09:28:57 - dubsmart.modules.diarization - INFO - Diarizing audio: temp/d57e4750-6339-4fa5-82b8-24ce032ce48d\voice.wav
+2026-02-08 09:28:57 - dubsmart.modules.translation - INFO - Translating 1 segments from en to hi
+2026-02-08 09:28:57 - dubsmart.modules.translation - INFO - Loading NLLB model: facebook/nllb-200-distilled-600M
+2026-02-08 09:29:11 - dubsmart.api.logic - ERROR - Job d57e4750-6339-4fa5-82b8-24ce032ce48d failed: TokenizersBackend has no attribute lang_code_to_id
+2026-02-08 09:30:53 - dubsmart.modules.translation - INFO - Translator initialized with method: None
+2026-02-08 09:30:53 - dubsmart.modules.translation - INFO - Loading NLLB model: facebook/nllb-200-distilled-600M
+2026-02-08 09:32:23 - dubsmart.modules.translation - INFO - Translator initialized with method: None
+2026-02-08 09:32:23 - dubsmart.modules.translation - INFO - Loading NLLB model: facebook/nllb-200-distilled-600M
+2026-02-08 09:35:27 - dubsmart.modules.translation - INFO - Translator initialized with method: None
+2026-02-08 09:35:27 - dubsmart.modules.translation - INFO - Loading NLLB model: facebook/nllb-200-distilled-600M
+2026-02-08 09:36:49 - dubsmart.modules.transcription - INFO - Initializing Whisper model: small on cpu
+2026-02-08 09:37:00 - dubsmart.modules.translation - INFO - Translator initialized with method: None
+2026-02-08 09:37:00 - dubsmart.core.pipeline - INFO - Starting pipeline for temp/1c47b289-22ca-472f-acb4-7c3c20323f2e\voice.wav
+2026-02-08 09:37:00 - dubsmart.modules.transcription - INFO - Transcribing audio: temp/1c47b289-22ca-472f-acb4-7c3c20323f2e\voice.wav
+2026-02-08 09:37:16 - dubsmart.modules.transcription - INFO - Detected language: en
+2026-02-08 09:37:16 - dubsmart.core.pipeline - INFO - Auto-detected source language as: en
+2026-02-08 09:37:16 - dubsmart.modules.diarization - INFO - Diarizing audio: temp/1c47b289-22ca-472f-acb4-7c3c20323f2e\voice.wav
+2026-02-08 09:37:16 - dubsmart.modules.translation - INFO - Translating 1 segments from en to hi
+2026-02-08 09:37:16 - dubsmart.modules.translation - INFO - Loading NLLB model: facebook/nllb-200-distilled-600M
+2026-02-08 09:37:25 - dubsmart.api.logic - ERROR - Job 1c47b289-22ca-472f-acb4-7c3c20323f2e failed: TokenizersBackend has no attribute lang_code_to_id
+2026-02-08 12:57:51 - dubsmart.modules.transcription - INFO - Initializing Whisper model: small on cpu
+2026-02-08 12:58:02 - dubsmart.modules.translation - INFO - Translator initialized with method: None
+2026-02-08 12:58:02 - dubsmart.core.pipeline - INFO - Starting pipeline for temp/43eb13cd-1353-49d1-be8f-0c144c914e94\voice.wav
+2026-02-08 12:58:02 - dubsmart.modules.transcription - INFO - Transcribing audio: temp/43eb13cd-1353-49d1-be8f-0c144c914e94\voice.wav
+2026-02-08 12:58:08 - dubsmart.modules.transcription - INFO - Detected language: en
+2026-02-08 12:58:08 - dubsmart.core.pipeline - INFO - Auto-detected source language as: en
+2026-02-08 12:58:08 - dubsmart.modules.diarization - INFO - Diarizing audio: temp/43eb13cd-1353-49d1-be8f-0c144c914e94\voice.wav
+2026-02-08 12:58:08 - dubsmart.modules.translation - INFO - Translating 1 segments from en to hi
+2026-02-08 12:58:08 - dubsmart.modules.translation - INFO - Loading NLLB model: facebook/nllb-200-distilled-600M
+2026-02-08 12:58:22 - dubsmart.modules.cloning - WARNING - TTS library not installed. Using Smart EdgeTTS fallback.
+2026-02-08 12:58:22 - dubsmart.modules.cloning - INFO - Using Smart EdgeTTS fallback for hi...
+2026-02-08 12:58:26 - dubsmart.modules.cloning - INFO - Detected average pitch: 1155.71 Hz
+2026-02-08 12:58:26 - dubsmart.modules.cloning - INFO - Matched input voice to gender: FEMALE
+2026-02-08 12:58:26 - dubsmart.modules.cloning - INFO - Selected EdgeTTS Voice: hi-IN-SwaraNeural
+2026-02-08 12:58:32 - dubsmart.core.pipeline - INFO - Synthesized 1/1 segments
+2026-02-08 12:58:32 - dubsmart.processor.mixer - INFO - Mixed audio saved to: output/dubbed_43eb13cd-1353-49d1-be8f-0c144c914e94_hi.wav
+2026-02-08 13:12:33 - dubsmart.modules.transcription - INFO - Initializing Whisper model: small on cpu
+2026-02-08 13:12:41 - dubsmart.modules.translation - INFO - Translator initialized with method: None
+2026-02-08 13:12:41 - dubsmart.core.pipeline - INFO - Starting pipeline for temp/118bb314-eee3-4ea2-9cdc-dcf69b6503da\voice.wav
+2026-02-08 13:12:41 - dubsmart.modules.transcription - INFO - Transcribing audio: temp/118bb314-eee3-4ea2-9cdc-dcf69b6503da\voice.wav
+2026-02-08 13:12:47 - dubsmart.modules.transcription - INFO - Detected language: en
+2026-02-08 13:12:47 - dubsmart.core.pipeline - INFO - Auto-detected source language as: en
+2026-02-08 13:12:47 - dubsmart.modules.diarization - INFO - Diarizing audio: temp/118bb314-eee3-4ea2-9cdc-dcf69b6503da\voice.wav
+2026-02-08 13:12:47 - dubsmart.modules.translation - INFO - Translating 1 segments from en to hi
+2026-02-08 13:12:47 - dubsmart.modules.translation - INFO - Loading NLLB model: facebook/nllb-200-distilled-600M
+2026-02-08 13:13:02 - dubsmart.modules.cloning - WARNING - TTS library not installed. Using Smart EdgeTTS fallback.
+2026-02-08 13:13:02 - dubsmart.modules.cloning - INFO - Using Smart EdgeTTS fallback for hi...
+2026-02-08 13:13:02 - dubsmart.modules.cloning - INFO - Detected average pitch: 1155.71 Hz
+2026-02-08 13:13:02 - dubsmart.modules.cloning - INFO - Matched input voice to gender: FEMALE
+2026-02-08 13:13:02 - dubsmart.modules.cloning - INFO - Selected EdgeTTS Voice: hi-IN-SwaraNeural
+2026-02-08 13:13:07 - dubsmart.core.pipeline - INFO - Synthesized 1/1 segments
+2026-02-08 13:13:07 - dubsmart.processor.mixer - INFO - Mixed audio saved to: output/dubbed_118bb314-eee3-4ea2-9cdc-dcf69b6503da_hi.wav
+2026-02-08 13:28:38 - dubsmart.modules.transcription - INFO - Initializing Whisper model: small on cpu
+2026-02-08 13:28:42 - dubsmart.modules.translation - INFO - Translator initialized with method: None
+2026-02-08 13:28:42 - dubsmart.core.pipeline - INFO - Starting pipeline for temp/871dde48-4d84-4635-a247-31bb3ffcc64e\voice.wav
+2026-02-08 13:28:42 - dubsmart.modules.transcription - INFO - Transcribing audio: temp/871dde48-4d84-4635-a247-31bb3ffcc64e\voice.wav
+2026-02-08 13:28:49 - dubsmart.modules.transcription - INFO - Detected language: en
+2026-02-08 13:28:49 - dubsmart.core.pipeline - INFO - Auto-detected source language as: en
+2026-02-08 13:28:49 - dubsmart.modules.diarization - INFO - Diarizing audio: temp/871dde48-4d84-4635-a247-31bb3ffcc64e\voice.wav
+2026-02-08 13:28:49 - dubsmart.modules.translation - INFO - Translating 1 segments from en to hi
+2026-02-08 13:28:49 - dubsmart.modules.translation - INFO - Loading NLLB model: facebook/nllb-200-distilled-600M
+2026-02-08 13:29:04 - dubsmart.modules.cloning - WARNING - TTS library not installed. Using Smart EdgeTTS fallback.
+2026-02-08 13:29:04 - dubsmart.modules.cloning - INFO - Using Smart EdgeTTS fallback for hi...
+2026-02-08 13:29:04 - dubsmart.modules.cloning - INFO - Detected average pitch: 1155.71 Hz
+2026-02-08 13:29:04 - dubsmart.modules.cloning - INFO - Matched input voice to gender: FEMALE
+2026-02-08 13:29:04 - dubsmart.modules.cloning - INFO - Selected EdgeTTS Voice: hi-IN-SwaraNeural
+2026-02-08 13:29:08 - dubsmart.core.pipeline - INFO - Synthesized 1/1 segments
+2026-02-08 13:29:09 - dubsmart.processor.mixer - INFO - Mixed audio saved to: output/dubbed_871dde48-4d84-4635-a247-31bb3ffcc64e_hi.wav
+2026-02-08 13:36:45 - dubsmart.modules.transcription - INFO - Initializing Whisper model: small on cpu
+2026-02-08 13:37:33 - dubsmart.modules.translation - INFO - Translator initialized with method: None
+2026-02-08 13:37:33 - dubsmart.core.pipeline - INFO - Starting pipeline for temp/b8cf7f14-7df0-489f-9d95-f8ef8d7cf0bb\voice.wav
+2026-02-08 13:37:33 - dubsmart.modules.transcription - INFO - Transcribing audio: temp/b8cf7f14-7df0-489f-9d95-f8ef8d7cf0bb\voice.wav
+2026-02-08 13:37:39 - dubsmart.modules.transcription - INFO - Detected language: en
+2026-02-08 13:37:39 - dubsmart.core.pipeline - INFO - Auto-detected source language as: en
+2026-02-08 13:37:39 - dubsmart.modules.diarization - INFO - Diarizing audio: temp/b8cf7f14-7df0-489f-9d95-f8ef8d7cf0bb\voice.wav
+2026-02-08 13:37:39 - dubsmart.modules.translation - INFO - Translating 1 segments from en to hi
+2026-02-08 13:37:39 - dubsmart.modules.translation - INFO - Loading NLLB model: facebook/nllb-200-distilled-600M
+2026-02-08 13:38:01 - dubsmart.modules.cloning - INFO - Loading Coqui XTTS-v2 model (Lazy Load)...
+2026-02-08 13:59:40 - dubsmart.modules.transcription - INFO - Initializing Whisper model: small on cpu
+2026-02-08 14:00:11 - dubsmart.modules.translation - INFO - Translator initialized with method: None
+2026-02-08 14:00:11 - dubsmart.core.pipeline - INFO - Starting pipeline for temp/6f8df91a-5c16-4056-8870-fb6762872b79\voice.wav
+2026-02-08 14:00:11 - dubsmart.modules.transcription - INFO - Transcribing audio: temp/6f8df91a-5c16-4056-8870-fb6762872b79\voice.wav
+2026-02-08 14:00:18 - dubsmart.modules.transcription - INFO - Detected language: en
+2026-02-08 14:00:18 - dubsmart.core.pipeline - INFO - Auto-detected source language as: en
+2026-02-08 14:00:18 - dubsmart.modules.diarization - INFO - Diarizing audio: temp/6f8df91a-5c16-4056-8870-fb6762872b79\voice.wav
+2026-02-08 14:00:18 - dubsmart.modules.translation - INFO - Translating 1 segments from en to hi
+2026-02-08 14:00:18 - dubsmart.modules.translation - INFO - Loading NLLB model: facebook/nllb-200-distilled-600M
+2026-02-08 14:00:42 - dubsmart.modules.cloning - INFO - Loading Coqui XTTS-v2 model (Lazy Load)...
+2026-02-08 14:12:04 - dubsmart.modules.cloning - ERROR - Failed to load Coqui model: cannot import name 'BeamSearchScorer' from 'transformers' (D:\dubsmart_ai\AweTalesdub-ai\.venv\lib\site-packages\transformers\__init__.py)
+2026-02-08 14:12:04 - dubsmart.modules.cloning - INFO - Model loading failed, will use fallback synthesis
+2026-02-08 14:12:04 - dubsmart.modules.cloning - INFO - Using Smart EdgeTTS fallback for hi...
+2026-02-08 14:12:04 - dubsmart.modules.cloning - INFO - Detected average pitch: 1155.71 Hz
+2026-02-08 14:12:04 - dubsmart.modules.cloning - INFO - Matched input voice to gender: FEMALE
+2026-02-08 14:12:04 - dubsmart.modules.cloning - INFO - Selected EdgeTTS Voice: hi-IN-SwaraNeural
+2026-02-08 14:12:09 - dubsmart.core.pipeline - INFO - Synthesized 1/1 segments
+2026-02-08 14:12:10 - dubsmart.processor.mixer - INFO - Mixed audio saved to: output/dubbed_6f8df91a-5c16-4056-8870-fb6762872b79_hi.wav
+2026-02-08 14:20:20 - dubsmart.modules.transcription - INFO - Initializing Whisper model: small on cpu
+2026-02-08 14:20:25 - dubsmart.modules.translation - INFO - Translator initialized with method: None
+2026-02-08 14:20:25 - dubsmart.core.pipeline - INFO - Starting pipeline for temp/c44be384-1d6f-4604-8504-f6d54d03f1f0\voice.wav
+2026-02-08 14:20:25 - dubsmart.modules.transcription - INFO - Transcribing audio: temp/c44be384-1d6f-4604-8504-f6d54d03f1f0\voice.wav
+2026-02-08 14:20:32 - dubsmart.modules.transcription - INFO - Detected language: en
+2026-02-08 14:20:32 - dubsmart.core.pipeline - INFO - Auto-detected source language as: en
+2026-02-08 14:20:32 - dubsmart.modules.diarization - INFO - Diarizing audio: temp/c44be384-1d6f-4604-8504-f6d54d03f1f0\voice.wav
+2026-02-08 14:20:32 - dubsmart.modules.translation - INFO - Translating 1 segments from en to hi
+2026-02-08 14:20:32 - dubsmart.modules.translation - INFO - Loading NLLB model: facebook/nllb-200-distilled-600M
+2026-02-08 14:20:45 - dubsmart.modules.cloning - INFO - Loading Coqui XTTS-v2 model (Lazy Load)...
+2026-02-08 14:20:46 - dubsmart.modules.cloning - ERROR - Failed to load Coqui model: cannot import name 'BeamSearchScorer' from 'transformers' (D:\dubsmart_ai\AweTalesdub-ai\.venv\lib\site-packages\transformers\__init__.py)
+2026-02-08 14:20:46 - dubsmart.modules.cloning - INFO - Model loading failed, will use fallback synthesis
+2026-02-08 14:20:46 - dubsmart.modules.cloning - INFO - Using Smart EdgeTTS fallback for hi...
+2026-02-08 14:20:47 - dubsmart.modules.cloning - INFO - Detected average pitch: 1155.71 Hz
+2026-02-08 14:20:47 - dubsmart.modules.cloning - INFO - Matched input voice to gender: FEMALE
+2026-02-08 14:20:47 - dubsmart.modules.cloning - INFO - Selected EdgeTTS Voice: hi-IN-SwaraNeural
+2026-02-08 14:20:51 - dubsmart.core.pipeline - INFO - Synthesized 1/1 segments
+2026-02-08 14:20:51 - dubsmart.processor.mixer - INFO - Mixed audio saved to: output/dubbed_c44be384-1d6f-4604-8504-f6d54d03f1f0_hi.wav
+2026-02-08 14:24:46 - dubsmart.modules.transcription - INFO - Initializing Whisper model: small on cpu
+2026-02-08 14:24:55 - dubsmart.modules.translation - INFO - Translator initialized with method: None
+2026-02-08 14:24:55 - dubsmart.core.pipeline - INFO - Starting pipeline for temp/b216ba58-16bf-43eb-a815-b9fc7d3c225b\voice.wav
+2026-02-08 14:24:55 - dubsmart.modules.transcription - INFO - Transcribing audio: temp/b216ba58-16bf-43eb-a815-b9fc7d3c225b\voice.wav
+2026-02-08 14:25:01 - dubsmart.modules.transcription - INFO - Detected language: en
+2026-02-08 14:25:01 - dubsmart.core.pipeline - INFO - Auto-detected source language as: en
+2026-02-08 14:25:01 - dubsmart.modules.diarization - INFO - Diarizing audio: temp/b216ba58-16bf-43eb-a815-b9fc7d3c225b\voice.wav
+2026-02-08 14:25:01 - dubsmart.modules.translation - INFO - Translating 1 segments from en to hi
+2026-02-08 14:25:01 - dubsmart.modules.translation - INFO - Loading NLLB model: facebook/nllb-200-distilled-600M
+2026-02-08 14:25:31 - dubsmart.modules.cloning - INFO - Loading Coqui XTTS-v2 model (Lazy Load)...
+2026-02-08 14:25:58 - dubsmart.modules.cloning - ERROR - Failed to load Coqui model: Weights only load failed. This file can still be loaded, to do so you have two options, [1mdo those steps only if you trust the source of the checkpoint[0m. 
+	(1) In PyTorch 2.6, we changed the default value of the `weights_only` argument in `torch.load` from `False` to `True`. Re-running `torch.load` with `weights_only` set to `False` will likely succeed, but it can result in arbitrary code execution. Do it only if you got the file from a trusted source.
+	(2) Alternatively, to load with `weights_only=True` please check the recommended steps in the following error message.
+	WeightsUnpickler error: Unsupported global: GLOBAL TTS.tts.configs.xtts_config.XttsConfig was not an allowed global by default. Please use `torch.serialization.add_safe_globals([TTS.tts.configs.xtts_config.XttsConfig])` or the `torch.serialization.safe_globals([TTS.tts.configs.xtts_config.XttsConfig])` context manager to allowlist this global if you trust this class/function.
+
+Check the documentation of torch.load to learn more about types accepted by default with weights_only https://pytorch.org/docs/stable/generated/torch.load.html.
+2026-02-08 14:25:58 - dubsmart.modules.cloning - INFO - Model loading failed, will use fallback synthesis
+2026-02-08 14:25:58 - dubsmart.modules.cloning - INFO - Using Smart EdgeTTS fallback for hi...
+2026-02-08 14:25:58 - dubsmart.modules.cloning - INFO - Detected average pitch: 1155.71 Hz
+2026-02-08 14:25:58 - dubsmart.modules.cloning - INFO - Matched input voice to gender: FEMALE
+2026-02-08 14:25:58 - dubsmart.modules.cloning - INFO - Selected EdgeTTS Voice: hi-IN-SwaraNeural
+2026-02-08 14:26:03 - dubsmart.core.pipeline - INFO - Synthesized 1/1 segments
+2026-02-08 14:26:03 - dubsmart.processor.mixer - INFO - Mixed audio saved to: output/dubbed_b216ba58-16bf-43eb-a815-b9fc7d3c225b_hi.wav
+2026-02-08 14:33:19 - dubsmart.modules.transcription - INFO - Initializing Whisper model: small on cpu
+2026-02-08 14:33:23 - dubsmart.modules.translation - INFO - Translator initialized with method: None
+2026-02-08 14:33:23 - dubsmart.core.pipeline - INFO - Starting pipeline for temp/f5575ecf-6391-4dcf-b578-a45a3ea94091\voice.wav
+2026-02-08 14:33:23 - dubsmart.modules.transcription - INFO - Transcribing audio: temp/f5575ecf-6391-4dcf-b578-a45a3ea94091\voice.wav
+2026-02-08 14:33:29 - dubsmart.modules.transcription - INFO - Detected language: en
+2026-02-08 14:33:29 - dubsmart.core.pipeline - INFO - Auto-detected source language as: en
+2026-02-08 14:33:29 - dubsmart.modules.diarization - INFO - Diarizing audio: temp/f5575ecf-6391-4dcf-b578-a45a3ea94091\voice.wav
+2026-02-08 14:33:29 - dubsmart.modules.translation - INFO - Translating 1 segments from en to hi
+2026-02-08 14:33:29 - dubsmart.modules.translation - INFO - Loading NLLB model: facebook/nllb-200-distilled-600M
+2026-02-08 14:33:55 - dubsmart.modules.cloning - INFO - Loading Coqui XTTS-v2 model (Lazy Load)...
+2026-02-08 14:34:18 - dubsmart.modules.cloning - ERROR - XTTS synthesis failed: Could not load libtorchcodec. Likely causes:
+          1. FFmpeg is not properly installed in your environment. We support
+             versions 4, 5, 6, 7, and 8, and we attempt to load libtorchcodec
+             for each of those versions. Errors for versions not installed on
+             your system are expected; only the error for your installed FFmpeg
+             version is relevant. On Windows, ensure you've installed the
+             "full-shared" version which ships DLLs.
+          2. The PyTorch version (2.10.0+cpu) is not compatible with
+             this version of TorchCodec. Refer to the version compatibility
+             table:
+             https://github.com/pytorch/torchcodec?tab=readme-ov-file#installing-torchcodec.
+          3. Another runtime dependency; see exceptions below.
+
+        The following exceptions were raised as we tried to load libtorchcodec:
+        
+[start of libtorchcodec loading traceback]
+FFmpeg version 8:
+Traceback (most recent call last):
+  File "D:\dubsmart_ai\AweTalesdub-ai\.venv\lib\site-packages\torch\_ops.py", line 1442, in load_library
+    ctypes.CDLL(path)
+  File "C:\Users\Aashritha\AppData\Roaming\uv\python\cpython-3.10.19-windows-x86_64-none\lib\ctypes\__init__.py", line 374, in __init__
+    self._handle = _dlopen(self._name, mode)
+FileNotFoundError: Could not find module 'D:\dubsmart_ai\AweTalesdub-ai\.venv\Lib\site-packages\torchcodec\libtorchcodec_core8.dll' (or one of its dependencies). Try using the full path with constructor syntax.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\dubsmart_ai\AweTalesdub-ai\.venv\lib\site-packages\torchcodec\_core\ops.py", line 57, in load_torchcodec_shared_libraries
+    torch.ops.load_library(core_library_path)
+  File "D:\dubsmart_ai\AweTalesdub-ai\.venv\lib\site-packages\torch\_ops.py", line 1444, in load_library
+    raise OSError(f"Could not load this library: {path}") from e
+OSError: Could not load this library: D:\dubsmart_ai\AweTalesdub-ai\.venv\Lib\site-packages\torchcodec\libtorchcodec_core8.dll
+
+FFmpeg version 7:
+Traceback (most recent call last):
+  File "D:\dubsmart_ai\AweTalesdub-ai\.venv\lib\site-packages\torch\_ops.py", line 1442, in load_library
+    ctypes.CDLL(path)
+  File "C:\Users\Aashritha\AppData\Roaming\uv\python\cpython-3.10.19-windows-x86_64-none\lib\ctypes\__init__.py", line 374, in __init__
+    self._handle = _dlopen(self._name, mode)
+FileNotFoundError: Could not find module 'D:\dubsmart_ai\AweTalesdub-ai\.venv\Lib\site-packages\torchcodec\libtorchcodec_core7.dll' (or one of its dependencies). Try using the full path with constructor syntax.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\dubsmart_ai\AweTalesdub-ai\.venv\lib\site-packages\torchcodec\_core\ops.py", line 57, in load_torchcodec_shared_libraries
+    torch.ops.load_library(core_library_path)
+  File "D:\dubsmart_ai\AweTalesdub-ai\.venv\lib\site-packages\torch\_ops.py", line 1444, in load_library
+    raise OSError(f"Could not load this library: {path}") from e
+OSError: Could not load this library: D:\dubsmart_ai\AweTalesdub-ai\.venv\Lib\site-packages\torchcodec\libtorchcodec_core7.dll
+
+FFmpeg version 6:
+Traceback (most recent call last):
+  File "D:\dubsmart_ai\AweTalesdub-ai\.venv\lib\site-packages\torch\_ops.py", line 1442, in load_library
+    ctypes.CDLL(path)
+  File "C:\Users\Aashritha\AppData\Roaming\uv\python\cpython-3.10.19-windows-x86_64-none\lib\ctypes\__init__.py", line 374, in __init__
+    self._handle = _dlopen(self._name, mode)
+FileNotFoundError: Could not find module 'D:\dubsmart_ai\AweTalesdub-ai\.venv\Lib\site-packages\torchcodec\libtorchcodec_core6.dll' (or one of its dependencies). Try using the full path with constructor syntax.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\dubsmart_ai\AweTalesdub-ai\.venv\lib\site-packages\torchcodec\_core\ops.py", line 57, in load_torchcodec_shared_libraries
+    torch.ops.load_library(core_library_path)
+  File "D:\dubsmart_ai\AweTalesdub-ai\.venv\lib\site-packages\torch\_ops.py", line 1444, in load_library
+    raise OSError(f"Could not load this library: {path}") from e
+OSError: Could not load this library: D:\dubsmart_ai\AweTalesdub-ai\.venv\Lib\site-packages\torchcodec\libtorchcodec_core6.dll
+
+FFmpeg version 5:
+Traceback (most recent call last):
+  File "D:\dubsmart_ai\AweTalesdub-ai\.venv\lib\site-packages\torch\_ops.py", line 1442, in load_library
+    ctypes.CDLL(path)
+  File "C:\Users\Aashritha\AppData\Roaming\uv\python\cpython-3.10.19-windows-x86_64-none\lib\ctypes\__init__.py", line 374, in __init__
+    self._handle = _dlopen(self._name, mode)
+FileNotFoundError: Could not find module 'D:\dubsmart_ai\AweTalesdub-ai\.venv\Lib\site-packages\torchcodec\libtorchcodec_core5.dll' (or one of its dependencies). Try using the full path with constructor syntax.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\dubsmart_ai\AweTalesdub-ai\.venv\lib\site-packages\torchcodec\_core\ops.py", line 57, in load_torchcodec_shared_libraries
+    torch.ops.load_library(core_library_path)
+  File "D:\dubsmart_ai\AweTalesdub-ai\.venv\lib\site-packages\torch\_ops.py", line 1444, in load_library
+    raise OSError(f"Could not load this library: {path}") from e
+OSError: Could not load this library: D:\dubsmart_ai\AweTalesdub-ai\.venv\Lib\site-packages\torchcodec\libtorchcodec_core5.dll
+
+FFmpeg version 4:
+Traceback (most recent call last):
+  File "D:\dubsmart_ai\AweTalesdub-ai\.venv\lib\site-packages\torch\_ops.py", line 1442, in load_library
+    ctypes.CDLL(path)
+  File "C:\Users\Aashritha\AppData\Roaming\uv\python\cpython-3.10.19-windows-x86_64-none\lib\ctypes\__init__.py", line 374, in __init__
+    self._handle = _dlopen(self._name, mode)
+FileNotFoundError: Could not find module 'D:\dubsmart_ai\AweTalesdub-ai\.venv\Lib\site-packages\torchcodec\libtorchcodec_core4.dll' (or one of its dependencies). Try using the full path with constructor syntax.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\dubsmart_ai\AweTalesdub-ai\.venv\lib\site-packages\torchcodec\_core\ops.py", line 57, in load_torchcodec_shared_libraries
+    torch.ops.load_library(core_library_path)
+  File "D:\dubsmart_ai\AweTalesdub-ai\.venv\lib\site-packages\torch\_ops.py", line 1444, in load_library
+    raise OSError(f"Could not load this library: {path}") from e
+OSError: Could not load this library: D:\dubsmart_ai\AweTalesdub-ai\.venv\Lib\site-packages\torchcodec\libtorchcodec_core4.dll
+[end of libtorchcodec loading traceback].. Switching to Smart EdgeTTS fallback.
+2026-02-08 14:34:18 - dubsmart.modules.cloning - INFO - Using Smart EdgeTTS fallback for hi...
+2026-02-08 14:34:18 - dubsmart.modules.cloning - INFO - Detected average pitch: 1155.71 Hz
+2026-02-08 14:34:18 - dubsmart.modules.cloning - INFO - Matched input voice to gender: FEMALE
+2026-02-08 14:34:18 - dubsmart.modules.cloning - INFO - Selected EdgeTTS Voice: hi-IN-SwaraNeural
+2026-02-08 14:34:23 - dubsmart.core.pipeline - INFO - Synthesized 1/1 segments
+2026-02-08 14:34:24 - dubsmart.processor.mixer - INFO - Mixed audio saved to: output/dubbed_f5575ecf-6391-4dcf-b578-a45a3ea94091_hi.wav
+2026-02-08 14:38:28 - dubsmart.modules.transcription - INFO - Initializing Whisper model: small on cpu
+2026-02-08 14:38:32 - dubsmart.modules.translation - INFO - Translator initialized with method: None
+2026-02-08 14:38:32 - dubsmart.core.pipeline - INFO - Starting pipeline for temp/bcc46541-0d0e-4af3-a66b-e470aa60719e\voice.wav
+2026-02-08 14:38:32 - dubsmart.modules.transcription - INFO - Transcribing audio: temp/bcc46541-0d0e-4af3-a66b-e470aa60719e\voice.wav
+2026-02-08 14:38:38 - dubsmart.modules.transcription - INFO - Detected language: en
+2026-02-08 14:38:38 - dubsmart.core.pipeline - INFO - Auto-detected source language as: en
+2026-02-08 14:38:38 - dubsmart.modules.diarization - INFO - Diarizing audio: temp/bcc46541-0d0e-4af3-a66b-e470aa60719e\voice.wav
+2026-02-08 14:38:38 - dubsmart.modules.translation - INFO - Translating 1 segments from en to hi
+2026-02-08 14:38:38 - dubsmart.modules.translation - INFO - Loading NLLB model: facebook/nllb-200-distilled-600M
+2026-02-08 14:39:01 - dubsmart.modules.cloning - INFO - Loading Coqui XTTS-v2 model (Lazy Load)...
+2026-02-08 14:39:29 - dubsmart.modules.cloning - ERROR - XTTS synthesis failed: TorchCodec is required for load_with_torchcodec. Please install torchcodec to use this function.. Switching to Smart EdgeTTS fallback.
+2026-02-08 14:39:29 - dubsmart.modules.cloning - INFO - Using Smart EdgeTTS fallback for hi...
+2026-02-08 14:39:30 - dubsmart.modules.cloning - INFO - Detected average pitch: 1155.71 Hz
+2026-02-08 14:39:30 - dubsmart.modules.cloning - INFO - Matched input voice to gender: FEMALE
+2026-02-08 14:39:30 - dubsmart.modules.cloning - INFO - Selected EdgeTTS Voice: hi-IN-SwaraNeural
+2026-02-08 14:39:33 - dubsmart.core.pipeline - INFO - Synthesized 1/1 segments
+2026-02-08 14:39:34 - dubsmart.processor.mixer - INFO - Mixed audio saved to: output/dubbed_bcc46541-0d0e-4af3-a66b-e470aa60719e_hi.wav
+2026-02-08 14:44:00 - dubsmart.modules.transcription - INFO - Initializing Whisper model: small on cpu
+2026-02-08 14:44:07 - dubsmart.modules.translation - INFO - Translator initialized with method: None
+2026-02-08 14:44:07 - dubsmart.core.pipeline - INFO - Starting pipeline for temp/1b481248-2b41-4919-8661-6676e359778c\voice.wav
+2026-02-08 14:44:07 - dubsmart.modules.transcription - INFO - Transcribing audio: temp/1b481248-2b41-4919-8661-6676e359778c\voice.wav
+2026-02-08 14:44:14 - dubsmart.modules.transcription - INFO - Detected language: en
+2026-02-08 14:44:14 - dubsmart.core.pipeline - INFO - Auto-detected source language as: en
+2026-02-08 14:44:14 - dubsmart.modules.diarization - INFO - Diarizing audio: temp/1b481248-2b41-4919-8661-6676e359778c\voice.wav
+2026-02-08 14:44:14 - dubsmart.modules.translation - INFO - Translating 1 segments from en to hi
+2026-02-08 14:44:14 - dubsmart.modules.translation - INFO - Loading NLLB model: facebook/nllb-200-distilled-600M
+2026-02-08 14:44:30 - dubsmart.modules.cloning - INFO - Loading Coqui XTTS-v2 model (Lazy Load)...
+2026-02-08 14:45:04 - dubsmart.modules.cloning - ERROR - XTTS synthesis failed: TorchCodec is required for load_with_torchcodec. Please install torchcodec to use this function.. Switching to Smart EdgeTTS fallback.
+2026-02-08 14:45:04 - dubsmart.modules.cloning - INFO - Using Smart EdgeTTS fallback for hi...
+2026-02-08 14:45:04 - dubsmart.modules.cloning - INFO - Detected average pitch: 1155.71 Hz
+2026-02-08 14:45:04 - dubsmart.modules.cloning - INFO - Matched input voice to gender: FEMALE
+2026-02-08 14:45:04 - dubsmart.modules.cloning - INFO - Selected EdgeTTS Voice: hi-IN-SwaraNeural
+2026-02-08 14:45:09 - dubsmart.core.pipeline - INFO - Synthesized 1/1 segments
+2026-02-08 14:45:09 - dubsmart.processor.mixer - INFO - Mixed audio saved to: output/dubbed_1b481248-2b41-4919-8661-6676e359778c_hi.wav
+2026-02-08 15:05:10 - dubsmart.modules.transcription - INFO - Initializing Whisper model: small on cpu
+2026-02-08 15:05:18 - dubsmart.modules.translation - INFO - Translator initialized with method: None
+2026-02-08 15:05:18 - dubsmart.core.pipeline - INFO - Starting pipeline for temp/ec93a8bd-b040-4496-b1eb-c74b49f2f0fe\voice.wav
+2026-02-08 15:05:18 - dubsmart.modules.transcription - INFO - Transcribing audio: temp/ec93a8bd-b040-4496-b1eb-c74b49f2f0fe\voice.wav
+2026-02-08 15:05:30 - dubsmart.modules.transcription - INFO - Detected language: en
+2026-02-08 15:05:30 - dubsmart.core.pipeline - INFO - Auto-detected source language as: en
+2026-02-08 15:05:30 - dubsmart.modules.diarization - INFO - Diarizing audio: temp/ec93a8bd-b040-4496-b1eb-c74b49f2f0fe\voice.wav
+2026-02-08 15:05:30 - dubsmart.modules.translation - INFO - Translating 1 segments from en to hi
+2026-02-08 15:05:30 - dubsmart.modules.translation - INFO - Loading NLLB model: facebook/nllb-200-distilled-600M
+2026-02-08 15:06:22 - dubsmart.modules.cloning - INFO - Loading Coqui XTTS-v2 model (Lazy Load)...
+2026-02-08 15:07:43 - dubsmart.core.pipeline - INFO - Synthesized 1/1 segments
+2026-02-08 15:07:43 - dubsmart.processor.mixer - INFO - Mixed audio saved to: output/dubbed_ec93a8bd-b040-4496-b1eb-c74b49f2f0fe_hi.wav
+2026-02-08 15:09:03 - dubsmart.modules.transcription - INFO - Initializing Whisper model: small on cpu
+2026-02-08 15:09:08 - dubsmart.api.logic - ERROR - Job 32f968a0-3c67-43c0-ad58-fca52faf7608 failed: [Errno 22] Invalid argument

@@ -28,3 +28,7 @@ ffmpeg
 ffprobe
 ffmpeg
 ffprobe
+
+from pydub import AudioSegment
+AudioSegment.converter = r"D:\dubsmart_ai\AweTalesdub-ai\ffmpeg\bin\ffmpeg.exe"
+AudioSegment.ffprobe = r"D:\dubsmart_ai\AweTalesdub-ai\ffmpeg\bin\ffprobe.exe"

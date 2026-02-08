@@ -36,6 +36,17 @@ class VoiceCloner:
             import os
             # Work around PyTorch 2.6 weights_only issue
             os.environ['TORCH_FORCE_WEIGHTS_ONLY_LOAD'] = '0'
+            # Auto-agree to Coqui TOS
+            os.environ['COQUI_TOS_AGREED'] = '1'
+
+            import torch
+            # Monkey-patch torch.load to default weights_only=False for Coqui
+            _original_load = torch.load
+            def _safe_load(*args, **kwargs):
+                if 'weights_only' not in kwargs:
+                    kwargs['weights_only'] = False
+                return _original_load(*args, **kwargs)
+            torch.load = _safe_load
 
             from TTS.api import TTS
         except ImportError:

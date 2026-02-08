@@ -20,7 +20,8 @@ SUPPORTED_LANGUAGES = {
     'ar': 'Arabic',
     'zh-cn': 'Chinese',
     'ja': 'Japanese',
-    'ko': 'Korean'
+    'ko': 'Korean',
+    'te': 'Telugu'
 }
 
 # Audio processing settings
@@ -33,7 +34,7 @@ AUDIO_SETTINGS = {
 
 # AI Model Settings
 WHISPER_MODEL = os.getenv('WHISPER_MODEL', 'base')
-TRANSLATION_METHOD = os.getenv('TRANSLATION_METHOD', 'm2m100')
+TRANSLATION_METHOD = os.getenv('TRANSLATION_METHOD', 'nllb')
 TTS_ENGINE = os.getenv('TTS_ENGINE', 'coqui')
 
 # Voice mapping per language and speaker
@@ -45,6 +46,10 @@ VOICE_MAPPING = {
     'hi': {
         'S1': {'gender': 'male', 'name': 'hi-in', 'variant': 'default'},
         'S2': {'gender': 'female', 'name': 'hi-in', 'variant': 'default'},
+    },
+    'te': {
+        'S1': {'gender': 'male', 'name': 'te-in', 'variant': 'default'},
+        'S2': {'gender': 'female', 'name': 'te-in', 'variant': 'default'},
     },
     # Add more mappings as needed
 }

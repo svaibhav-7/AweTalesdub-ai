@@ -62,6 +62,25 @@ def normalize_language_code(lang_code: str, target_model: str = 'xtts') -> str:
         },
         'm2m100': {
             'zh-cn': 'zh',
+        },
+        'nllb': {
+            'en': 'eng_Latn',
+            'hi': 'hin_Deva',
+            'te': 'tel_Telu',
+            'es': 'spa_Latn',
+            'fr': 'fra_Latn',
+            'de': 'deu_Latn',
+            'it': 'ita_Latn',
+            'pt': 'por_Latn',
+            'pl': 'pol_Latn',
+            'tr': 'tur_Latn',
+            'ru': 'rus_Cyrl',
+            'nl': 'nld_Latn',
+            'cs': 'ces_Latn',
+            'ar': 'ara_Arab',
+            'zh-cn': 'zho_Hans',
+            'ja': 'jpn_Jpan',
+            'ko': 'kor_Hang',
         }
     }
     
