@@ -2,6 +2,8 @@
 
 Professional, high-performance multilingual audio dubbing system.
 
+> 📄 **Documentation:** For detailed information about the system architecture, features, and setup, please refer to the [Dubsmart Documentation PDF](docs/Dubsmart_Documentation.pdf).
+
 ## 🏗️ Project Structure
 The project follows professional modular standards:
 
