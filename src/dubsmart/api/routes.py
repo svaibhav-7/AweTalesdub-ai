@@ -32,3 +32,28 @@ async def download_result(job_id: str):
 async def health_check():
     """Health check endpoint for Render"""
     return {"status": "healthy", "service": "dubsmart-api"}
+
+# --- SaaS MVP Stubs ---
+from fastapi import HTTPException
+from pydantic import BaseModel
+
+class LoginRequest(BaseModel):
+    email: str
+    password: str
+
+@router.post("/api/auth/login")
+async def login_stub(req: LoginRequest):
+    """Stub endpoint for authenticating a user."""
+    return {
+        "access_token": "mock-jwt-token-for-demo",
+        "user": {
+            "email": req.email,
+            "credits": 10,
+            "isPremium": False
+        }
+    }
+
+@router.get("/api/user/credits")
+async def get_credits_stub(user_id: str = "demo"):
+    """Stub endpoint to fetch remaining freestyle credits."""
+    return {"credits": 10}

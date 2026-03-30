@@ -1,185 +1,83 @@
-import React, { useState, useEffect } from 'react';
-import './index.css';
+import React from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { useAuth } from './context/AuthContext';
+import './App.css';
+
+// Layouts & Components
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+
+// Public Pages
+import Home from './pages/Home';
+import Features from './pages/Features';
+import Pricing from './pages/Pricing';
+import About from './pages/About';
+import Contact from './pages/Contact';
+
+// Auth Pages
+import Login from './pages/Login';
+
+// Protected Pages
+import DashboardOverview from './pages/Dashboard';
+import Studio from './pages/Studio';
+import AdminDashboard from './pages/AdminDashboard';
+
+// Route Guard Component
+const ProtectedRoute = ({ children }) => {
+  const { isAuthenticated } = useAuth();
+  if (!isAuthenticated) return <Navigate to="/login" />;
+  return children;
+};
+
+// Admin Guard Component
+const AdminRoute = ({ children }) => {
+  const { isAuthenticated, user } = useAuth();
+  if (!isAuthenticated) return <Navigate to="/login" />;
+  if (user?.email !== 'sasi@dubsmart.ai') return <Navigate to="/dashboard" />;
+  return children;
+};
 
 function App() {
-  const [file, setFile] = useState(null);
-  const [srcLang, setSrcLang] = useState('auto');
-  const [tgtLang, setTgtLang] = useState('hi');
-  const [isProcessing, setIsProcessing] = useState(false);
-  const [progress, setProgress] = useState(0);
-  const [status, setStatus] = useState('Ready to dub your audio');
-  const [result, setResult] = useState(null);
-
-  const handleUpload = (e) => {
-    const uploadedFile = e.target.files[0];
-    if (uploadedFile) {
-      setFile(uploadedFile);
-      setStatus(`Selected file: ${uploadedFile.name}`);
-    }
-  };
-
-  const startDubbing = async () => {
-    if (!file) return;
-
-    setIsProcessing(true);
-    setResult(null);
-    setProgress(5);
-    setStatus('Uploading and initializing pipeline...');
-
-    try {
-      const formData = new FormData();
-      formData.append('file', file);
-      formData.append('src_lang', srcLang);
-      formData.append('tgt_lang', tgtLang);
-
-      const response = await fetch('http://localhost:8000/dub', {
-        method: 'POST',
-        body: formData,
-      });
-
-      if (!response.ok) throw new Error('Failed to start dubbing');
-
-      const { job_id } = await response.json();
-
-      // Start polling
-      const pollInterval = setInterval(async () => {
-        try {
-          const statusRes = await fetch(`http://localhost:8000/status/${job_id}`);
-          const statusData = await statusRes.json();
-
-          setProgress(statusData.progress || 10);
-          setStatus(statusData.message || 'Processing...');
-
-          if (statusData.status === 'completed') {
-            clearInterval(pollInterval);
-            setIsProcessing(false);
-            setResult(`http://localhost:8000/download/${job_id}`);
-            setStatus('Dubbing complete!');
-          } else if (statusData.status === 'failed') {
-            clearInterval(pollInterval);
-            setIsProcessing(false);
-            setStatus(`Error: ${statusData.message}`);
-          }
-        } catch (err) {
-          console.error("Polling error:", err);
-        }
-      }, 3000);
-
-    } catch (err) {
-      console.error("Upload error:", err);
-      setIsProcessing(false);
-      setStatus(`Failed to connect: ${err.message}`);
-    }
-  };
-
   return (
-    <div className="app-container">
-      <header>
-        <div className="logo">DUBSMART AI</div>
-        <div className="status-badge">API Online</div>
-      </header>
+    <div className="app-wrapper">
+      <Navbar />
 
-      <section className="hero">
-        <h1>Your Dubbing Partner</h1>
-        <p>AI-powered dubbing for your audio content</p>
-      </section>
+      <main className="main-content">
+        <Routes>
+          {/* Public Routes */}
+          <Route path="/" element={<Home />} />
+          <Route path="/features" element={<Features />} />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
 
-      <main className="main-card">
-        <div className="upload-zone" onClick={() => document.getElementById('file-input').click()}>
-          <div className="upload-icon">🎙️</div>
-          <h3>{file ? file.name : "Drop your audio here or click to browse"}</h3>
-          <p>Supports WAV, MP3, and AAC up to 50MB</p>
-          <input
-            id="file-input"
-            type="file"
-            hidden
-            accept="audio/*"
-            onChange={handleUpload}
-          />
-        </div>
+          {/* Auth Routes */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Login />} />
 
-        <div className="controls-grid">
-          <div className="control-group">
-            <label>Source Language</label>
-            <select value={srcLang} onChange={(e) => setSrcLang(e.target.value)}>
-              <option value="auto">Auto-detect</option>
-              <option value="en">English</option>
-              <option value="hi">Hindi</option>
-              <option value="te">Telugu</option>
-              <option value="es">Spanish</option>
-              <option value="fr">French</option>
-              <option value="de">German</option>
-              <option value="it">Italian</option>
-              <option value="pt">Portuguese</option>
-              <option value="pl">Polish</option>
-              <option value="tr">Turkish</option>
-              <option value="ru">Russian</option>
-              <option value="nl">Dutch</option>
-              <option value="cs">Czech</option>
-              <option value="ar">Arabic</option>
-              <option value="zh-cn">Chinese</option>
-              <option value="ja">Japanese</option>
-              <option value="ko">Korean</option>
-            </select>
-          </div>
-          <div className="control-group">
-            <label>Target Language</label>
-            <select value={tgtLang} onChange={(e) => setTgtLang(e.target.value)}>
-              <option value="hi">Hindi</option>
-              <option value="en">English</option>
-              <option value="te">Telugu</option>
-              <option value="es">Spanish</option>
-              <option value="fr">French</option>
-              <option value="de">German</option>
-              <option value="it">Italian</option>
-              <option value="pt">Portuguese</option>
-              <option value="pl">Polish</option>
-              <option value="tr">Turkish</option>
-              <option value="ru">Russian</option>
-              <option value="nl">Dutch</option>
-              <option value="cs">Czech</option>
-              <option value="ar">Arabic</option>
-              <option value="zh-cn">Chinese</option>
-              <option value="ja">Japanese</option>
-              <option value="ko">Korean</option>
-            </select>
-          </div>
-        </div>
+          {/* Protected Routes (Dashboard / Studio) */}
+          <Route path="/dashboard" element={
+            <ProtectedRoute>
+              <DashboardOverview />
+            </ProtectedRoute>
+          } />
 
-        <button
-          className="btn-primary"
-          disabled={!file || isProcessing}
-          onClick={startDubbing}
-        >
-          {isProcessing ? "Processing..." : "Start Dubbing Pipeline"}
-        </button>
+          <Route path="/studio" element={
+            <ProtectedRoute>
+              <Studio />
+            </ProtectedRoute>
+          } />
 
-        {(isProcessing || progress > 0) && (
-          <div className="progress-container">
-            <div className="progress-bar">
-              <div className="progress-fill" style={{ width: `${progress}%` }}></div>
-            </div>
-            <div className="status-text">{status}</div>
-          </div>
-        )}
-
-        {result && (
-          <div className="result-section fadeIn">
-            <hr style={{ margin: '2rem 0', opacity: 0.1 }} />
-            <h3>Result Ready!</h3>
-            <div style={{ marginTop: '1rem', display: 'flex', gap: '1rem', alignItems: 'center' }}>
-              <audio controls src={result} style={{ flexGrow: 1 }} />
-              <a href={result} download className="btn-secondary" style={{ textDecoration: 'none', color: 'white', padding: '0.5rem 1rem', border: '1px solid var(--border-color)', borderRadius: '8px' }}>
-                Download
-              </a>
-            </div>
-          </div>
-        )}
+          {/* Sasi Vaibhav God-Mode Admin Route */}
+          <Route path="/admin" element={
+            <AdminRoute>
+              <AdminDashboard />
+            </AdminRoute>
+          } />
+        </Routes>
       </main>
 
-      <footer style={{ textAlign: 'center', opacity: 0.5, fontSize: '0.8rem' }}>
-        © 2026 Dubsmart AI. Built for the future of multilingual content.
-      </footer>
+      <Footer />
     </div>
   );
 }

@@ -21,12 +21,35 @@ class VoiceCloner:
         self.model = None
 
         # Fix torchaudio torchcodec compatibility issue
+        # NOTE: set_audio_backend() is deprecated in torchaudio 2.8+
+        # We need to monkey-patch torchaudio.load to avoid load_with_torchcodec
         try:
             import torchaudio
-            torchaudio.set_audio_backend("soundfile")
-            logger.info("Set torchaudio backend to soundfile (avoiding torchcodec issues)")
+            import torchaudio.backend.utils as backend_utils
+            
+            # Store original load function
+            _original_torchaudio_load = torchaudio.load
+            
+            # Create wrapper that forces standard loading (avoids torchcodec)
+            def _patched_load(filepath, *args, normalize=False, channels_first=True, **kwargs):
+                """Patched torchaudio.load that avoids torchcodec backend."""
+                try:
+                    # Try using soundfile backend directly
+                    import soundfile as sf
+                    data, samplerate = sf.read(filepath, dtype='float32')
+                    import torch
+                    waveform = torch.from_numpy(data.T if data.ndim > 1 else data.reshape(1, -1))
+                    return waveform, samplerate
+                except Exception as e:
+                    # Fallback to original load if soundfile fails
+                    logger.warning(f"Soundfile load failed: {e}, using original torchaudio.load")
+                    return _original_torchaudio_load(filepath, *args, normalize=normalize, channels_first=channels_first, **kwargs)
+            
+            # Apply the monkey-patch
+            torchaudio.load = _patched_load
+            logger.info("Patched torchaudio.load to avoid torchcodec issues")
         except Exception as e:
-            logger.warning(f"Could not set torchaudio backend: {e}")
+            logger.warning(f"Could not patch torchaudio.load: {e}")
 
         # Fix PyTorch 2.6+ weights_only issue for Coqui XTTS
         try:

@@ -1,0 +1,53 @@
+2026-02-08 15:55:12 - dubsmart.modules.transcription - INFO - Initializing Whisper model: small on cpu
+2026-02-08 15:55:34 - dubsmart.modules.translation - INFO - Translator initialized with method: None
+2026-02-08 15:56:44 - dubsmart.modules.cloning - INFO - Added XttsConfig to PyTorch safe globals.
+2026-02-08 15:56:44 - dubsmart.api.logic - INFO - Job bb2e7aaa-3fbd-4475-9619-487cafd513ab: Transcribing audio...
+2026-02-08 15:56:44 - dubsmart.core.pipeline - INFO - Starting pipeline for temp/bb2e7aaa-3fbd-4475-9619-487cafd513ab\short_test.wav
+2026-02-08 15:56:44 - dubsmart.modules.transcription - INFO - Transcribing audio: temp/bb2e7aaa-3fbd-4475-9619-487cafd513ab\short_test.wav
+2026-02-08 15:57:07 - dubsmart.modules.transcription - INFO - Detected language: en
+2026-02-08 15:57:07 - dubsmart.core.pipeline - INFO - Auto-detected source language as: en
+2026-02-08 15:57:07 - dubsmart.modules.diarization - INFO - Diarizing audio: temp/bb2e7aaa-3fbd-4475-9619-487cafd513ab\short_test.wav
+2026-02-08 15:57:07 - dubsmart.modules.translation - INFO - Translating 2 segments from en to hi
+2026-02-08 15:57:07 - dubsmart.modules.translation - INFO - Loading NLLB model: facebook/nllb-200-distilled-600M
+2026-02-08 16:52:23 - dubsmart.core.pipeline - INFO - Synthesizing 2 segments to 'hi' using cloned/matched voices...
+2026-02-08 16:54:52 - dubsmart.modules.cloning - INFO - Loading Coqui XTTS-v2 model (Lazy Load)...
+2026-02-08 17:19:13 - dubsmart.modules.cloning - ERROR - XTTS synthesis failed: TorchCodec is required for load_with_torchcodec. Please install torchcodec to use this function.. Switching to Smart EdgeTTS fallback.
+2026-02-08 17:19:18 - dubsmart.modules.cloning - INFO - Using Smart EdgeTTS fallback for hi...
+2026-02-08 17:21:14 - dubsmart.modules.cloning - INFO - Detected average pitch: 736.30 Hz
+2026-02-08 17:21:14 - dubsmart.modules.cloning - INFO - Matched input voice to gender: FEMALE
+2026-02-08 17:21:14 - dubsmart.modules.cloning - INFO - Selected EdgeTTS Voice: hi-IN-SwaraNeural
+2026-02-08 17:22:41 - dubsmart.modules.cloning - ERROR - XTTS synthesis failed: TorchCodec is required for load_with_torchcodec. Please install torchcodec to use this function.. Switching to Smart EdgeTTS fallback.
+2026-02-08 17:22:41 - dubsmart.modules.cloning - INFO - Using Smart EdgeTTS fallback for hi...
+2026-02-08 17:22:41 - dubsmart.modules.cloning - INFO - Detected average pitch: 736.30 Hz
+2026-02-08 17:22:41 - dubsmart.modules.cloning - INFO - Matched input voice to gender: FEMALE
+2026-02-08 17:22:41 - dubsmart.modules.cloning - INFO - Selected EdgeTTS Voice: hi-IN-SwaraNeural
+2026-02-08 17:22:46 - dubsmart.core.pipeline - INFO - Successfully synthesized 2/2 segments.
+2026-02-08 17:23:07 - dubsmart.processor.mixer - INFO - Mixed audio saved to: output/dubbed_bb2e7aaa-3fbd-4475-9619-487cafd513ab_hi.wav
+2026-02-08 17:23:07 - dubsmart.api.logic - INFO - Job bb2e7aaa-3fbd-4475-9619-487cafd513ab: Completed successfully
+2026-02-08 19:59:27 - dubsmart.modules.transcription - INFO - Initializing Whisper model: small on cpu
+2026-02-08 19:59:44 - dubsmart.modules.translation - INFO - Translator initialized with method: None
+2026-02-08 19:59:46 - dubsmart.modules.cloning - WARNING - Could not set torchaudio backend: module 'torchaudio' has no attribute 'set_audio_backend'
+2026-02-08 20:01:15 - dubsmart.modules.cloning - INFO - Added XttsConfig to PyTorch safe globals.
+2026-02-08 20:01:15 - dubsmart.api.logic - INFO - Job c51e9aa7-f5ff-4c54-9875-28c53b4fe61d: Transcribing audio...
+2026-02-08 20:01:15 - dubsmart.core.pipeline - INFO - Starting pipeline for temp/c51e9aa7-f5ff-4c54-9875-28c53b4fe61d\short_test.wav
+2026-02-08 20:01:15 - dubsmart.modules.transcription - INFO - Transcribing audio: temp/c51e9aa7-f5ff-4c54-9875-28c53b4fe61d\short_test.wav
+2026-02-08 20:01:43 - dubsmart.modules.transcription - INFO - Detected language: en
+2026-02-08 20:01:43 - dubsmart.core.pipeline - INFO - Auto-detected source language as: en
+2026-02-08 20:01:43 - dubsmart.modules.diarization - INFO - Diarizing audio: temp/c51e9aa7-f5ff-4c54-9875-28c53b4fe61d\short_test.wav
+2026-02-08 20:01:43 - dubsmart.modules.translation - INFO - Translating 2 segments from en to hi
+2026-02-08 20:01:43 - dubsmart.modules.translation - INFO - Loading NLLB model: facebook/nllb-200-distilled-600M
+2026-02-08 21:07:34 - dubsmart.core.pipeline - INFO - Synthesizing 2 segments to 'hi' using cloned/matched voices...
+2026-02-08 21:11:18 - dubsmart.modules.cloning - INFO - Loading Coqui XTTS-v2 model (Lazy Load)...
+2026-02-08 22:03:45 - dubsmart.modules.cloning - ERROR - XTTS synthesis failed: TorchCodec is required for load_with_torchcodec. Please install torchcodec to use this function.. Switching to Smart EdgeTTS fallback.
+2026-02-08 22:03:46 - dubsmart.modules.cloning - INFO - Using Smart EdgeTTS fallback for hi...
+2026-02-08 22:04:25 - dubsmart.modules.cloning - INFO - Detected average pitch: 736.30 Hz
+2026-02-08 22:04:25 - dubsmart.modules.cloning - INFO - Matched input voice to gender: FEMALE
+2026-02-08 22:04:25 - dubsmart.modules.cloning - INFO - Selected EdgeTTS Voice: hi-IN-SwaraNeural
+2026-02-08 22:04:56 - dubsmart.modules.cloning - ERROR - XTTS synthesis failed: TorchCodec is required for load_with_torchcodec. Please install torchcodec to use this function.. Switching to Smart EdgeTTS fallback.
+2026-02-08 22:04:56 - dubsmart.modules.cloning - INFO - Using Smart EdgeTTS fallback for hi...
+2026-02-08 22:04:57 - dubsmart.modules.cloning - INFO - Detected average pitch: 736.30 Hz
+2026-02-08 22:04:57 - dubsmart.modules.cloning - INFO - Matched input voice to gender: FEMALE
+2026-02-08 22:04:57 - dubsmart.modules.cloning - INFO - Selected EdgeTTS Voice: hi-IN-SwaraNeural
+2026-02-08 22:05:01 - dubsmart.core.pipeline - INFO - Successfully synthesized 2/2 segments.
+2026-02-08 22:05:04 - dubsmart.processor.mixer - INFO - Mixed audio saved to: output/dubbed_c51e9aa7-f5ff-4c54-9875-28c53b4fe61d_hi.wav
+2026-02-08 22:05:04 - dubsmart.api.logic - INFO - Job c51e9aa7-f5ff-4c54-9875-28c53b4fe61d: Completed successfully
