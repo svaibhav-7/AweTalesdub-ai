@@ -11,7 +11,7 @@ dubsmart-ai/
 │   └── dubsmart/       # Core package
 │       ├── core/       # Orchestration pipeline
 │       ├── modules/    # AI engines (Whisper, M2M100, XTTS)
-│       ├── processor/  # Audio processing and mixing
+│       ├── processor/  # Audio processing and mixing 
 │       ├── api/        # FastAPI modular backend
 │       └── utils/      # Shared utilities and config
 ├── webapp/             # Premium React frontend
